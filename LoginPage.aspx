@@ -60,11 +60,11 @@
                         <div class="card-body border-2 py-5 px-4">
                             <div class="form-floating mb-3">
                                 <asp:TextBox TextMode="Email" class="form-control fw-semibold border-dark" ID="floatingInput" placeholder="name@example.com" runat="server" />
-                                <label runat="server" style="font-size: 0.9rem;" class="fw-semibold" for="floatingPassword">Email address</label>
+                                <label runat="server" style="font-size: 0.8rem;" class="fw-semibold" for="floatingPassword">Email address</label>
                             </div>
                             <div class="form-floating">
                                 <asp:TextBox runat="server" type="password" TextMode="Password " class="form-control border-dark" ID="floatingPassword" placeholder="Password" />
-                                <label runat="server" style="font-size: 0.9rem;" class="fw-semibold" for="floatingPassword">Password</label>
+                                <label runat="server" style="font-size: 0.8rem;" class="fw-semibold" for="floatingPassword">Password</label>
                             </div>
                             <div class="row mt-2">
                                 <asp:Button ID="btnForget" runat="server" Text="Forgot Password?" Style="border: none; background-color: #ffffff; color: #000000;"
@@ -94,34 +94,34 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <asp:TextBox MaxLength="15" class="form-control fw-semibold border-1 border-dark" ID="txtFname" Style="font-size: 0.9rem;" placeholder="First Name" runat="server" onblur="validationFname()" />
-                                        <label runat="server" class="fw-semibold" style="font-size: 0.9rem;" id="lblFname" for="floatingPassword">First Name</label>
+                                        <asp:TextBox MaxLength="15" class="form-control fw-semibold border-1 border-dark" ID="txtFname" Style="font-size: 0.8rem;" placeholder="First Name" runat="server" onblur="validationFname()" />
+                                        <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" id="lblFname" for="floatingPassword">First Name</label>
                                     </div>
-                                    <label id="ElblFname" style="font-size: 0.9rem;" class="text-danger fw-semibold mt-0"></label>
+                                    <label id="ElblFname" style="font-size: 0.8rem;" class="text-danger fw-semibold mt-0"></label>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <asp:TextBox MaxLength="15" class="form-control  fw-semibold border-1 border-dark" ID="txtLname" Style="font-size: 0.9rem;" placeholder="Last Name" runat="server" onblur="validationLname()" />
-                                        <label runat="server" class="fw-semibold" style="font-size: 0.9rem;" for="floatingPassword">Last Name</label>
+                                        <asp:TextBox MaxLength="15" class="form-control  fw-semibold border-1 border-dark" ID="txtLname" Style="font-size: 0.8rem;" placeholder="Last Name" runat="server" onblur="validationLname()" />
+                                        <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" for="floatingPassword">Last Name</label>
                                     </div>
-                                    <label id="ElblLname" style="font-size: 0.9rem;" class="text-danger fw-semibold mt-0"></label>
+                                    <label id="ElblLname" style="font-size: 0.8rem;" class="text-danger fw-semibold mt-0"></label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <asp:TextBox TextMode="Phone" MaxLength="10" class="form-control fw-semibold border-1 border-dark" ID="txtPhone" Style="font-size: 0.9rem;" placeholder="Enter Mobile Number" runat="server" onblur="validationPhone()" />
-                                        <label runat="server" class="fw-semibold" style="font-size: 0.9rem;" for="floatingPassword">Mobile Number</label>
+                                        <asp:TextBox TextMode="Phone" MaxLength="10" class="form-control fw-semibold border-1 border-dark" ID="txtPhone" Style="font-size: 0.8rem;" placeholder="Enter Mobile Number" runat="server" onblur="validationPhone()" />
+                                        <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" for="floatingPassword">Mobile Number</label>
                                     </div>
-                                    <label id="ElblPhone" style="font-size: 0.9rem;" class="text-danger fw-semibold mt-0"></label>
+                                    <label id="ElblPhone" style="font-size: 0.8rem;" class="text-danger fw-semibold mt-0"></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <asp:DropDownList CssClass="form-control form-select fw-semibold py-3 border-1 border-dark" ID="ddlCategory" Style="font-size: 0.9rem;" runat="server" onblur="validationCategory()">
+                                    <asp:DropDownList CssClass="form-control form-select fw-semibold py-3 border-1 border-dark" ID="ddlCategory" Style="font-size: 0.8rem;" runat="server" onblur="validationCategory()">
                                         <asp:ListItem Text="Select Category" Value="0" />
                                         <asp:ListItem Text="Employeer" />
                                         <asp:ListItem Text="Employee" />
                                     </asp:DropDownList>
-                                    <label id="lblddlCategory" style="font-size: 0.9rem;" class="text-danger fw-semibold mb-1"></label>
+                                    <label id="lblddlCategory" style="font-size: 0.8rem;" class="text-danger fw-semibold mb-1"></label>
                                 </div>
 
 
@@ -129,20 +129,20 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <asp:TextBox TextMode="Email" MaxLength="24" class="form-control fw-semibold border-1 border-dark" Style="font-size: 0.9rem;" ID="txtEmail"
+                                        <asp:TextBox TextMode="Email" MaxLength="24" class="form-control fw-semibold border-1 border-dark" Style="font-size: 0.8rem;" ID="txtEmail"
                                             placeholder="name@example.com" runat="server" onblur="validationEmail()" />
-                                        <label runat="server" class="fw-semibold" style="font-size: 0.9rem;" for="floatingPassword">Email address</label>
+                                        <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" for="floatingPassword">Email address</label>
                                     </div>
-                                    <label id="ElblEmail" style="font-size: 0.9rem;" class="text-danger fw-semibold"></label>
+                                    <label id="ElblEmail" style="font-size: 0.8rem;" class="text-danger fw-semibold"></label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-floating">
                                         <asp:TextBox runat="server" MaxLength="16" TextMode="Password" class="form-control fw-semibold border-1 border-dark" ID="txtPassword" placeholder="Password" onblur="validationPasswrd()" />
-                                        <label runat="server" class="fw-semibold" style="font-size: 0.9rem;" for="floatingPassword">Password</label>
+                                        <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" for="floatingPassword">Password</label>
                                     </div>
-                                    <label id="ElblPassword" style="font-size: 0.9rem;" class="text-danger fw-semibold"></label>
+                                    <label id="ElblPassword" style="font-size: 0.8rem;" class="text-danger fw-semibold"></label>
                                 </div>
                             </div>
                         </div>
