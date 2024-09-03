@@ -37,55 +37,9 @@
     </style>
 
     <link href="assets/bootstrap.min.css" rel="stylesheet" />
-    <script>
-        function validationFname() {
-            let fname = document.getElementById("<%= txtFname.ClientID %>").value;
-            let fnameRegex = /^[A-Za-z]+$/;
-            if (fname === "") {
-                document.getElementById("ElblFname").innerHTML = "Requried";
-            } else if (!fnameRegex.test(fname)) {
-                document.getElementById("ElblFname").innerHTML = "Please enter a valid name";
-            }
-            else {
-                document.getElementById("ElblFname").innerHTML = "";
-            }
-        }
-
-        function validationLname() {
-            let lname = document.getElementById("<%= txtLname.ClientID %>").value;
-            let lnameRegex = /^[A-Za-z]+$/;
-            if (lname === "") {
-                document.getElementById("ElblLname").innerHTML = "Requried";
-            } else if (!lnameRegex.test(lname)) {
-                document.getElementById("ElblLname").innerHTML = "Please enter a valid name";
-            }
-            else {
-                document.getElementById("ElblLname").innerHTML = "";
-            }
-        }
-
-        function validationPhone() {
-            let phone = document.getElementById("<%= txtPhone.ClientID%>").value;
-            let regexPhone = /^[6-9]{1}[0-9]{9}/;
-
-            if (phone === "") {
-                document.getElementById("ElblPhone").innerHTML = "Requried";
-            } else if (!regexPhone.test(phone)) {
-                document.getElementById("ElblPhone").innerHTML = "Please enter a valid number"
-            }
-        }
-
-        function validationCategory() {
-            let Category = document.getElementById("<%= ddlCategory.ClientID%>").value;
-            if (ddlCategory == "")
-        }
-
-
-        lblddlCategory
-    </script>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" name="myForm" onsubmit="return validationForm()">
         <div runat="server" id="LoginContainer" class="container-fluid p-0 m-0">
             <div class="row p-0 m-0">
                 <div class="welcomeBlack d-flex align-items-center justify-content-center col-md-6 p-0 m-0">
@@ -131,7 +85,7 @@
         </div>
         <div runat="server" id="SignupContainer" visible="false" class="container-fluid p-0 m-0">
             <div class="row p-0 m-0">
-                <div class="col-md-6 p-0 m-0 py-5 d-flex align-items-center justify-content-center ">
+                <div class="col-md-6 p-0 m-0 py-3 d-flex align-items-center justify-content-center ">
                     <div class="card w-75 ">
                         <div style="background-color: #ffffff;" class="card-header">
                             <h1 class="text-center fw-bold">Ragister Here!</h1>
@@ -140,59 +94,61 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <asp:TextBox class="form-control fw-semibold border-1 border-dark" ID="txtFname" Style="font-size: 0.9rem;" placeholder="First Name" runat="server" onblur="validationFname()" />
+                                        <asp:TextBox MaxLength="15" class="form-control fw-semibold border-1 border-dark" ID="txtFname" Style="font-size: 0.9rem;" placeholder="First Name" runat="server" onblur="validationFname()" />
                                         <label runat="server" class="fw-semibold" style="font-size: 0.9rem;" id="lblFname" for="floatingPassword">First Name</label>
                                     </div>
                                     <label id="ElblFname" style="font-size: 0.9rem;" class="text-danger fw-semibold mt-0"></label>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <asp:TextBox class="form-control  fw-semibold border-1 border-dark" ID="txtLname" Style="font-size: 0.9rem;" placeholder="Last Name" runat="server" onblur="validationLname()" />
+                                        <asp:TextBox MaxLength="15" class="form-control  fw-semibold border-1 border-dark" ID="txtLname" Style="font-size: 0.9rem;" placeholder="Last Name" runat="server" onblur="validationLname()" />
                                         <label runat="server" class="fw-semibold" style="font-size: 0.9rem;" for="floatingPassword">Last Name</label>
                                     </div>
                                     <label id="ElblLname" style="font-size: 0.9rem;" class="text-danger fw-semibold mt-0"></label>
                                 </div>
                             </div>
-                            <div class="row mt-1">
+                            <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <asp:TextBox TextMode="Phone" class="form-control fw-semibold border-1 border-dark" ID="txtPhone" Style="font-size: 0.9rem;" placeholder="Enter Mobile Number" runat="server" onblur="validationPhone()" />
+                                        <asp:TextBox TextMode="Phone" MaxLength="10" class="form-control fw-semibold border-1 border-dark" ID="txtPhone" Style="font-size: 0.9rem;" placeholder="Enter Mobile Number" runat="server" onblur="validationPhone()" />
                                         <label runat="server" class="fw-semibold" style="font-size: 0.9rem;" for="floatingPassword">Mobile Number</label>
                                     </div>
                                     <label id="ElblPhone" style="font-size: 0.9rem;" class="text-danger fw-semibold mt-0"></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <asp:DropDownList CssClass="form-control form-select fw-semibold py-3 mb-3 border-1 border-dark" ID="ddlCategory" Style="font-size: 0.9rem;" runat="server" onblur="validationCategory()">
+                                    <asp:DropDownList CssClass="form-control form-select fw-semibold py-3 border-1 border-dark" ID="ddlCategory" Style="font-size: 0.9rem;" runat="server" onblur="validationCategory()">
                                         <asp:ListItem Text="Select Category" Value="0" />
                                         <asp:ListItem Text="Employeer" />
                                         <asp:ListItem Text="Employee" />
                                     </asp:DropDownList>
-                                    <label id="lblddlCategory" style="font-size: 0.9rem;" class="text-danger fw-semibold mt-0"></label>
+                                    <label id="lblddlCategory" style="font-size: 0.9rem;" class="text-danger fw-semibold mb-1"></label>
                                 </div>
 
 
                             </div>
-                            <div class="row ">
+                            <div class="row">
                                 <div class="col-md-12">
-                                    <div class="form-floating mb-3">
-                                        <asp:TextBox TextMode="Email" class="form-control fw-semibold border-1 border-dark" Style="font-size: 0.9rem;" ID="txtEmail" placeholder="name@example.com" runat="server" />
+                                    <div class="form-floating">
+                                        <asp:TextBox TextMode="Email" MaxLength="24" class="form-control fw-semibold border-1 border-dark" Style="font-size: 0.9rem;" ID="txtEmail"
+                                            placeholder="name@example.com" runat="server" onblur="validationEmail()" />
                                         <label runat="server" class="fw-semibold" style="font-size: 0.9rem;" for="floatingPassword">Email address</label>
                                     </div>
-
+                                    <label id="ElblEmail" style="font-size: 0.9rem;" class="text-danger fw-semibold"></label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <asp:TextBox runat="server" TextMode="Password" class="form-control fw-semibold border-1 border-dark" ID="txtPassword" placeholder="Password" />
+                                        <asp:TextBox runat="server" MaxLength="16" TextMode="Password" class="form-control fw-semibold border-1 border-dark" ID="txtPassword" placeholder="Password" onblur="validationPasswrd()" />
                                         <label runat="server" class="fw-semibold" style="font-size: 0.9rem;" for="floatingPassword">Password</label>
                                     </div>
+                                    <label id="ElblPassword" style="font-size: 0.9rem;" class="text-danger fw-semibold"></label>
                                 </div>
                             </div>
                         </div>
                         <div style="background-color: #ffffff;" class="card-footer">
                             <div class="row-md-6 py-2 gap-3 d-flex justify-content-center">
-                                <asp:Button Text="Sign Up" ID="btnSignup" CssClass="btn btn-dark px-5 py-2 fw-semibold" PostBackUrl="~/LoginPage.aspx" OnClick="btnSignup_Click" runat="server" AutoPostBack="true" />
+                                <asp:Button Text="Sign Up" ID="btnSignup" CssClass="btn btn-dark px-5 py-2 fw-semibold" runat="server" AutoPostBack="true" OnClick="btnSignup_Click"/>
                                 <asp:Button Text="Have account" ID="btnLogin" Style="border: none; background-color: #ffffff; color: #000000;" Font-Underline="true"
                                     CssClass="linkButton fw-semibold" runat="server" OnClick="btnLogin_Click"></asp:Button>
                             </div>
@@ -213,5 +169,119 @@
         </div>
     </form>
 
+    <script>
+
+
+
+        function validationFname() {
+            let fname = document.getElementById("<%= txtFname.ClientID %>").value;
+            let fnameRegex = /^[A-Za-z]+$/;
+            if (fname === "") {
+                document.getElementById("ElblFname").innerHTML = "Requried";
+            } else if (!fnameRegex.test(fname)) {
+                document.getElementById("ElblFname").innerHTML = "Please enter a valid name";
+            }
+            else {
+                document.getElementById("ElblFname").innerHTML = "";
+            }
+        }
+
+        function validationLname() {
+            let lname = document.getElementById("<%= txtLname.ClientID %>").value;
+            let lnameRegex = /^[A-Za-z]+$/;
+            if (lname === "") {
+                document.getElementById("ElblLname").innerHTML = "Requried";
+            } else if (!lnameRegex.test(lname)) {
+                document.getElementById("ElblLname").innerHTML = "Please enter a valid name";
+            }
+            else {
+                document.getElementById("ElblLname").innerHTML = "";
+            }
+        }
+
+        function validationPhone() {
+            let phone = document.getElementById("<%= txtPhone.ClientID%>").value;
+            let regexPhone = /^[6-9]{1}[0-9]{9}$/;
+
+            if (phone === "") {
+                document.getElementById("ElblPhone").innerHTML = "Requried";
+            } else if (!regexPhone.test(phone)) {
+                document.getElementById("ElblPhone").innerHTML = "Please enter a valid number"
+            }
+            else {
+                document.getElementById("ElblPhone").innerHTML = ""
+            }
+        }
+
+        function validationCategory() {
+            let Category = document.getElementById("<%=ddlCategory.ClientID%>").value;
+
+            if (Category === "0") {
+                document.getElementById("lblddlCategory").innerHTML = "Pleace Select Category";
+            } else {
+                document.getElementById("lblddlCategory").innerHTML = "";
+            }
+        }
+
+        function validationEmail() {
+            let email = document.getElementById("<%=txtEmail.ClientID%>").value;
+            let RegexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+            if (email === "") {
+                document.getElementById("ElblEmail").innerHTML = "Requried";
+            }
+            else if (!RegexEmail.test(email)) {
+                document.getElementById("ElblEmail").innerHTML = "Please Enter Valid Email";
+            }
+            else {
+                document.getElementById("ElblEmail").innerHTML = "";
+            }
+        }
+
+        function validationPasswrd() {
+            let password = document.getElementById("<%=txtPassword.ClientID%>").value;
+            let regexPassword = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+
+            if (password === "") {
+                document.getElementById("ElblPassword").innerHTML = "Required";
+            }
+            else if (!regexPassword.test(password)) {
+                document.getElementById("ElblPassword").innerHTML = "Password must include A-Z, a-z, 0-9, and special characters";
+            }
+            else {
+                document.getElementById("ElblPassword").innerHTML = "";
+            }
+        }
+
+
+        function validationForm() {
+            validationFname();
+            validationLname();
+            validationPhone();
+            validationCategory();
+            validationEmail();
+            validationPasswrd();
+
+            let errorMessages = [
+                document.getElementById("ElblFname").innerHTML,
+                document.getElementById("ElblLname").innerHTML,
+                document.getElementById("ElblPhone").innerHTML,
+                document.getElementById("lblddlCategory").innerHTML,
+                document.getElementById("ElblEmail").innerHTML,
+                document.getElementById("ElblPassword").innerHTML
+            ];
+
+            for (let i = 0; i < errorMessages.length; i++) {
+                if (errorMessages[i] !== "") {
+                    alert("Please correct the errors in the form before submitting.");
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
+
+    </script>
 </body>
 </html>

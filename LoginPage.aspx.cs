@@ -23,6 +23,10 @@ public partial class LoginPage : System.Web.UI.Page
         LoginContainer.Visible = true;
         SignupContainer.Visible = false;
     }
+
+
+
+
     protected void btnSignup_Click(object sender, EventArgs e)
     {
         Response.Redirect("LoginPage.aspx");
