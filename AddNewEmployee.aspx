@@ -24,6 +24,13 @@
             float: initial;
             font-size: 15px;
             font-weight: 600;
+
+
+
+
+
+
+            
         }
     </style>
     <main id="main" class="main">
