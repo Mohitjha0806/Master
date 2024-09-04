@@ -39,7 +39,7 @@
     <link href="assets/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <form id="form1" runat="server" name="myForm" onsubmit="return validationForm()">
+    <form id="form1" runat="server" name="myForm">
         <div runat="server" id="LoginContainer" class="container-fluid p-0 m-0">
             <div class="row p-0 m-0">
                 <div class="welcomeBlack d-flex align-items-center justify-content-center col-md-6 p-0 m-0">
@@ -68,14 +68,14 @@
                             </div>
                             <div class="row mt-2">
                                 <asp:Button ID="btnForget" runat="server" Text="Forgot Password?" Style="border: none; background-color: #ffffff; color: #000000;"
-                                    Font-Underline="true" PostBackUrl="~/Error404.aspx" CssClass="fw-semibold text-start" OnClick="btnHaveAccount_Click" AutoPostBack="true" />
+                                    Font-Underline="true" PostBackUrl="~/Error404.aspx" CssClass="fw-semibold text-start" />
                             </div>
                         </div>
                         <div style="background-color: #ffffff;" class="card-footer">
                             <div class="row-md-6 py-2 gap-3 d-flex justify-content-center">
                                 <asp:Button Text="Login" ID="btnLogin1" CssClass="btn btn-dark px-5 py-2 fw-semibold" PostBackUrl="Dashboard.aspx" runat="server" />
-                                <asp:Button PostBackUrl="LoginPAge.aspx" ID="btnHaveAccount" runat="server" Text="Ragister Now" Style="border: none; background-color: #ffffff; color: #000000;"
-                                    Font-Underline="true" CssClass="button-hover fw-semibold " OnClick="btnHaveAccount_Click" AutoPostBack="true" />
+                                <asp:Button PostBackUrl="LoginPAge.aspx" ID="btnRegister" runat="server" Text="Ragister Now" Style="border: none; background-color: #ffffff; color: #000000;"
+                                    Font-Underline="true" CssClass="button-hover fw-semibold " OnClick="btnRegister_Click" AutoPostBack="true" />
                             </div>
 
                         </div>
@@ -148,9 +148,15 @@
                         </div>
                         <div style="background-color: #ffffff;" class="card-footer">
                             <div class="row-md-6 py-2 gap-3 d-flex justify-content-center">
-                                <asp:Button Text="Sign Up" ID="btnSignup" CssClass="btn btn-dark px-5 py-2 fw-semibold" runat="server" AutoPostBack="true" OnClick="btnSignup_Click"/>
-                                <asp:Button Text="Have account" ID="btnLogin" Style="border: none; background-color: #ffffff; color: #000000;" Font-Underline="true"
-                                    CssClass="linkButton fw-semibold" runat="server" OnClick="btnLogin_Click"></asp:Button>
+
+                                <asp:Button Text="Sign Up" ID="btnSignup" CssClass="btn btn-dark px-5 py-2 fw-semibold" runat="server"
+                                    OnClick="btnSignup_Click" onsubmit="return validationForm();" OnClientClick="return validationForm();" CausesValidation="true" />
+
+
+                                <asp:Button Text="Have account" ID="btnHaveAccount" Style="border: none; background-color: #ffffff; color: #000000;"
+                                    Font-Underline="true" CssClass="linkButton fw-semibold" runat="server"
+                                    OnClick="btnHaveAccount_Click" />
+
                             </div>
                         </div>
                     </div>
@@ -273,12 +279,14 @@
 
             for (let i = 0; i < errorMessages.length; i++) {
                 if (errorMessages[i] !== "") {
-                    alert("Please correct the errors in the form before submitting.");
+                    alert("Please fill the empty field in the form before submitting.");
                     return false;
                 }
             }
             return true;
         }
+
+
 
 
 

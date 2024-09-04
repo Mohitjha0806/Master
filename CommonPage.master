@@ -127,8 +127,8 @@
                     <li class="nav-item dropdown pe-3">
 
                         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                            <img src="assets/img/Mohit.png" alt="Profile" class="rounded-circle">
+                            <span class="d-none d-md-block dropdown-toggle ps-2">Mohit Jha</span>
                         </a>
                         <!-- End Profile Iamge Icon -->
 
@@ -204,9 +204,20 @@
                             <i class="bi bi-menu-button-wide"></i><span>Company Master</span><i class="bi bi-chevron-down ms-auto"></i>
                         </a>
                         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+
                             <li>
                                 <a href="CompanyDetail.aspx">
                                     <i class="bi bi-circle"></i><span>Company Details</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="ChangeDepartmentTitles.aspx">
+                                    <i class="bi bi-circle"></i><span>Change Department</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="ChnageCompanyAddress.aspx">
+                                    <i class="bi bi-circle"></i><span>Chnage Company Address</span>
                                 </a>
                             </li>
 

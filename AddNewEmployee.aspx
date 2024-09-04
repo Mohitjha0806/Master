@@ -49,17 +49,24 @@
                                         ControlToValidate="txtEmpID" ValidationExpression="^[0-9]+$" runat="server" Display="Dynamic" />
                                 </div>
                                 <div class="col-md-4">
-                                    <asp:DropDownList CssClass="form-control form-select fw-semibold py-3" ID="ddlDepartment" Style="font-size: 0.8rem; border-color: #717FF5;" runat="server">
+                                    <asp:DropDownList CssClass="form-control form-select fw-semibold py-3" ID="ddlEmployeeDepartment"
+                                        Style="font-size: 0.8rem; border-color: #717FF5;" runat="server">
                                         <asp:ListItem Text="Select Department" Value="0" />
                                         <asp:ListItem Text="Finance" Value="1" />
                                         <asp:ListItem Text="IT" Value="2" />
                                         <asp:ListItem Text="HR" Value="3" />
                                         <asp:ListItem Text="Menufacture" Value="4" />
                                     </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;" ControlToValidate="ddlDepartment" InitialValue="0" runat="server" Display="Dynamic" />
+                                    <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;"
+                                        ControlToValidate="ddlEmployeeDepartment"
+                                        InitialValue="0" runat="server" Display="Dynamic" />
                                 </div>
+
+
+
                                 <div class="col-md-4">
-                                    <asp:DropDownList CssClass="form-control form-select fw-semibold py-3" ID="ddlEmployeePosition" InitialValue="0" Style="font-size: 0.8rem; border-color: #717FF5;" runat="server">
+                                    <asp:DropDownList CssClass="form-control form-select fw-semibold py-3" ID="ddlEmployeePosition"
+                                        Style="font-size: 0.8rem; border-color: #717FF5;" runat="server">
                                         <asp:ListItem Text="Select Position" Value="0" />
                                         <asp:ListItem Text="Manager" Value="1" />
                                         <asp:ListItem Text="Assistant Manager" Value="2" />
@@ -68,7 +75,7 @@
                                         <asp:ListItem Text="Shift Incharge" Value="5" />
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;"
-                                        ControlToValidate="ddlEmployeePosition" runat="server" Display="Dynamic" />
+                                        ControlToValidate="ddlEmployeePosition" InitialValue="0" runat="server" Display="Dynamic" />
                                 </div>
 
 
@@ -180,7 +187,7 @@
                                         <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Company Name" for="txtEmployeeCTC">Enter Employee CTC</label>
                                         <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;" ControlToValidate="txtEmployeeCTC" runat="server" Display="Dynamic" />
                                         <asp:RegularExpressionValidator ErrorMessage="Enter valid CTC" ForeColor="Red" Style="font-size: 0.8rem;"
-                                            ControlToValidate="txtEmployeeCTC" ValidationExpression="^[a-zA-Z0-9\s,.'-]{3,}$" runat="server" Display="Dynamic" />
+                                            ControlToValidate="txtEmployeeCTC" ValidationExpression="^(?:[1-9][0-9]{0,6}|9[0-9]{6})(?:\.[0-9]{1,2})?$" runat="server" Display="Dynamic" />
                                     </div>
                                 </div>
                             </div>
