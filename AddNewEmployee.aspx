@@ -24,13 +24,6 @@
             float: initial;
             font-size: 15px;
             font-weight: 600;
-
-
-
-
-
-
-            
         }
     </style>
     <main id="main" class="main">
@@ -57,12 +50,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <asp:DropDownList CssClass="form-control form-select fw-semibold py-3" ID="ddlEmployeeDepartment"
-                                        Style="font-size: 0.8rem; border-color: #717FF5;" runat="server">
-                                        <asp:ListItem Text="Select Department" Value="0" />
-                                        <asp:ListItem Text="Finance" Value="1" />
-                                        <asp:ListItem Text="IT" Value="2" />
-                                        <asp:ListItem Text="HR" Value="3" />
-                                        <asp:ListItem Text="Menufacture" Value="4" />
+                                        Style="font-size: 0.8rem; border-color: #717FF5;" runat="server" OnSelectedIndexChanged="ddlEmployeeDepartment_SelectedIndexChanged" AutoPostBack="true">
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;"
                                         ControlToValidate="ddlEmployeeDepartment"
@@ -74,12 +62,7 @@
                                 <div class="col-md-4">
                                     <asp:DropDownList CssClass="form-control form-select fw-semibold py-3" ID="ddlEmployeePosition"
                                         Style="font-size: 0.8rem; border-color: #717FF5;" runat="server">
-                                        <asp:ListItem Text="Select Position" Value="0" />
-                                        <asp:ListItem Text="Manager" Value="1" />
-                                        <asp:ListItem Text="Assistant Manager" Value="2" />
-                                        <asp:ListItem Text="Team Leader" Value="3" />
-                                        <asp:ListItem Text="Executive" Value="4" />
-                                        <asp:ListItem Text="Shift Incharge" Value="5" />
+                                        <asp:ListItem Text="Select Position" />
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;"
                                         ControlToValidate="ddlEmployeePosition" InitialValue="0" runat="server" Display="Dynamic" />
