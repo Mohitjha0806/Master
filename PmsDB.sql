@@ -124,3 +124,124 @@ END;
 
 
 EXEC usp_GetPositionByDepartment @DepartmentID = 2;
+
+
+
+CREATE TABLE tblState (
+    StateID INT IDENTITY(1,1) PRIMARY KEY,
+    StateName VARCHAR(50)
+);
+
+INSERT INTO tblState (StateName) VALUES
+('Madhya Pradesh'),
+('Maharashtra'),
+('Uttar Pradesh'),
+('Rajasthan'),
+('Gujarat'),
+('Karnataka'),
+('Tamil Nadu'),
+('West Bengal'),
+('Bihar'),
+('Kerala');
+
+CREATE TABLE tblCity (
+    CityID INT IDENTITY(1,1) PRIMARY KEY,
+    CityName VARCHAR(50),
+    StateID INT
+);
+
+
+INSERT INTO tblCity (CityName, StateID) VALUES
+('Bhopal', 1),
+('Indore', 1),
+('Gwalior', 1),
+('Jabalpur', 1),
+('Ujjain', 1),
+('Mumbai', 2),
+('Pune', 2),
+('Nagpur', 2),
+('Nashik', 2),
+('Aurangabad', 2),
+('Lucknow', 3),
+('Kanpur', 3),
+('Agra', 3),
+('Varanasi', 3),
+('Meerut', 3),
+('Jaipur', 4),
+('Udaipur', 4),
+('Jodhpur', 4),
+('Ajmer', 4),
+('Kota', 4),
+('Ahmedabad', 5),
+('Surat', 5),
+('Vadodara', 5),
+('Rajkot', 5),
+('Bhavnagar', 5),
+('Bangalore', 6),
+('Mysore', 6),
+('Mangalore', 6),
+('Hubli', 6),
+('Belgaum', 6),
+('Chennai', 7),
+('Coimbatore', 7),
+('Madurai', 7),
+('Tiruchirappalli', 7),
+('Salem', 7),
+('Kolkata', 8),
+('Asansol', 8),
+('Siliguri', 8),
+('Durgapur', 8),
+('Howrah', 8),
+('Patna', 9),
+('Gaya', 9),
+('Bhagalpur', 9),
+('Muzaffarpur', 9),
+('Darbhanga', 9),
+('Thiruvananthapuram', 10),
+('Kochi', 10),
+('Kozhikode', 10),
+('Thrissur', 10),
+('Kollam', 10);
+
+
+select * from tblState;
+select * from tblCity;
+
+Create procedure uspGetState
+AS
+Begin
+Select StateID, StateName from  tblState;
+end;
+
+
+CREATE PROCEDURE uspGetSelectData
+    @StateID INT = NULL,
+    @CityID INT = NULL
+AS
+BEGIN
+    SELECT 
+        s.StateName AS State, 
+        c.CityName AS City 
+    FROM 
+        tblState AS s
+    LEFT JOIN 
+        tblCity AS c ON s.StateID = c.StateID
+    WHERE
+        (@StateID IS NULL OR s.StateID = @StateID) AND
+        (@CityID IS NULL OR c.CityID = @CityID);
+END;
+
+
+create procedure usp_SetCityByState
+@StateID INT
+as
+begin
+select CityID, CityName
+from tblCity
+where @StateID = StateID
+end;
+
+
+
+
+

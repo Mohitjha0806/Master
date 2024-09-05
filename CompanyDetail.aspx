@@ -110,20 +110,36 @@
 
                                 </div>
                                 <div class="col-md-4">
-                                    <asp:DropDownList CssClass="form-control form-select fw-semibold py-3 mt-1" Style="font-size: 0.8rem; border-color: #717FF5;" ID="ddlCompanystate" runat="server">
+                                    <asp:DropDownList CssClass="form-control form-select fw-semibold py-3 mt-1"
+                                        Style="font-size: 0.8rem; border-color: #717FF5;"
+                                        ID="ddlCompanystate"
+                                        runat="server"
+                                        OnSelectedIndexChanged="ddlCompanystate_SelectedIndexChanged1"
+                                        AutoPostBack="True">
                                         <asp:ListItem Text="Select State" Value="0" />
-                                        <asp:ListItem Text="Madhya Pradesh" />
-                                        <asp:ListItem Text="Utter Pradesh" />
                                     </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;" ControlToValidate="ddlCompanystate" InitialValue="0" runat="server" Display="Dynamic" />
+                                    <asp:RequiredFieldValidator ErrorMessage="Required"
+                                        ForeColor="Red"
+                                        Style="font-size: 0.8rem;"
+                                        ControlToValidate="ddlCompanystate"
+                                        InitialValue="0"
+                                        runat="server"
+                                        Display="Dynamic" />
                                 </div>
                                 <div class="col-md-4">
-                                    <asp:DropDownList CssClass="form-control form-select fw-semibold py-3 mt-1" ID="ddlCompanyCity" Style="font-size: 0.8rem; border-color: #717FF5;" runat="server">
+                                    <asp:DropDownList CssClass="form-control form-select fw-semibold py-3 mt-1"
+                                        ID="ddlCompanyCity"
+                                        Style="font-size: 0.8rem; border-color: #717FF5;"
+                                        runat="server">
                                         <asp:ListItem Text="Select City" Value="0" />
-                                        <asp:ListItem Text="Bhopal" />
-                                        <asp:ListItem Text="Lakhnow" />
                                     </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;" ControlToValidate="ddlCompanyCity" InitialValue="0" runat="server" Display="Dynamic" />
+                                    <asp:RequiredFieldValidator ErrorMessage="Required"
+                                        ForeColor="Red"
+                                        Style="font-size: 0.8rem;"
+                                        ControlToValidate="ddlCompanyCity"
+                                        InitialValue="0"
+                                        runat="server"
+                                        Display="Dynamic" />
                                 </div>
 
                             </div>

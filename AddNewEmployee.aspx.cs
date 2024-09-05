@@ -13,6 +13,7 @@ public partial class AddNewEmployee : System.Web.UI.Page
         if (!IsPostBack)
         {
             BindDepartment();
+            BindState();
         }
     }
 
@@ -62,6 +63,54 @@ public partial class AddNewEmployee : System.Web.UI.Page
         {
             ddlEmployeePosition.Items.Clear();
             ddlEmployeePosition.Items.Insert(0, new ListItem("Select Position", "0"));
+        }
+    }
+
+    private void BindState()
+    {
+        using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connection"].ConnectionString))
+        {
+            SqlCommand cmd = new SqlCommand("uspGetState", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            ddlEmployeeState.DataSource = reader;
+            ddlEmployeeState.DataTextField = "StateName";
+            ddlEmployeeState.DataValueField = "StateID";
+            ddlEmployeeState.DataBind();
+        }
+        ddlEmployeeState.Items.Insert(0, new ListItem("Select State", "0"));
+    }
+    private void BindCity(int StateID)
+    {
+        using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connection"].ConnectionString))
+        {
+            SqlCommand cmd = new SqlCommand("usp_SetCityByState", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@StateID", StateID);
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            ddlEmployeeCity.DataSource = reader;
+            ddlEmployeeCity.DataTextField = "CityName";
+            ddlEmployeeCity.DataValueField = "CityID";
+            ddlEmployeeCity.DataBind();
+        }
+        ddlEmployeeCity.Items.Insert(0, new ListItem("Select City", "0"));
+    }
+
+
+
+    
+
+    protected void ddlEmployeeState_SelectedIndexChanged1(object sender, EventArgs e)
+    {
+        if (int.TryParse(ddlEmployeeState.SelectedValue, out int stateId) && stateId > 0)
+        {
+            BindCity(stateId);
+        }
+        else
+        {
+            ddlEmployeeCity.Items.Clear();
         }
     }
 }
