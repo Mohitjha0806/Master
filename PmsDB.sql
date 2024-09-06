@@ -297,6 +297,8 @@ END;
 
 select * from  tblCompanyRegistration;
 
+DELETE FROM tblCompanyRegistration
+WHERE id BETWEEN  1003 AND 1014; 
 
 CREATE PROC Usp_GetGridData
 AS
@@ -305,6 +307,39 @@ SELECT [ID], [CompanyName], [CompanyRegistrationNumber], [CompanyIndustry], [Com
 END;
 
 
+CREATE PROC Usp_DeleteCompanyRow
+	@ID INT
+AS
+BEGIN
+	DELETE FROM tblCompanyRegistration WHERE ID = @ID
+END;
 
 
+alTER PROCEDURE Usp_UpdateCompanyRow
+	@ID INT,
+    @CompanyName VARCHAR(50) = NULL,
+    @CompanyRegistrationNumber VARCHAR(50) = NULL,
+    @CompanyIndustry VARCHAR(50) = NULL,
+    @CompanyPersonName VARCHAR(50) = NULL,
+    @CompanyPersonNumber VARCHAR(50) = NULL,
+    @CompanyPersonEmail VARCHAR(50) = NULL,
+    @CompanyStateName VARCHAR(50) = NULL,
+    @CompanyStateCity VARCHAR(50) = NULL,
+    @CompanyAddress VARCHAR(300) = NULL
+AS
+BEGIN
+    
+	UPDATE tblCompanyRegistration
+	SET  
+		CompanyName = @CompanyName,
+        CompanyRegistrationNumber = @CompanyRegistrationNumber,
+        CompanyIndustry = @CompanyIndustry,
+        CompanyPersonName = @CompanyPersonName,
+        CompanyPersonNumber = @CompanyPersonNumber,
+        CompanyPersonEmail = @CompanyPersonEmail,
+        CompanyStateName = @CompanyStateName,
+        CompanyStateCity = @CompanyStateCity,
+        CompanyAddress = @CompanyAddress
+		WHERE ID = @ID;
 
+END

@@ -288,8 +288,16 @@
 
                                 <asp:TemplateField HeaderText="Update/Delete">
                                     <ItemTemplate>
-                                        <asp:LinkButton Text="Update" CssClass="btn btn-warning" runat="server" OnRowCommand="UpdateRecord" CommandArgument='<%#"ID"%>' />
-                                        <asp:LinkButton Text="Delete" CssClass="btn btn-danger" runat="server" OnRowCommand="DeleteRecord" CommandArgument='<%#"ID"%>' />
+                                        <div class="row">
+                                            <div class="col-md-6 ">
+                                                <asp:LinkButton Text="Update" CssClass="btn btn-warning btn-sm" runat="server" OnRowCommand="UpdateRecord" CommandArgument='<%#"ID"%>' />
+                                            </div>
+                                            <br />  <br />
+                                            <div lass="col-md-6">
+                                                <asp:LinkButton Text="Delete" CssClass="btn btn-danger btn-sm" runat="server" OnRowCommand="DeleteRecord" CommandArgument='<%#"ID"%>' />
+                                            </div>
+                                        </div>
+
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
