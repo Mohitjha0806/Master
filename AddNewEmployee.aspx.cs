@@ -52,6 +52,10 @@ public partial class AddNewEmployee : System.Web.UI.Page
         ddlEmployeePosition.Items.Insert(0, new ListItem("Select Position", "0"));
     }
 
+
+
+   
+
     protected void ddlEmployeeDepartment_SelectedIndexChanged(object sender, EventArgs e)
     {
         if (int.TryParse(ddlEmployeeDepartment.SelectedValue, out int DepartmentID) && DepartmentID > 0)
@@ -100,9 +104,7 @@ public partial class AddNewEmployee : System.Web.UI.Page
 
 
 
-    
-
-    protected void ddlEmployeeState_SelectedIndexChanged1(object sender, EventArgs e)
+    protected void ddlEmployeeState_SelectedIndexChanged(object sender, EventArgs e)
     {
         if (int.TryParse(ddlEmployeeState.SelectedValue, out int stateId) && stateId > 0)
         {
@@ -113,4 +115,6 @@ public partial class AddNewEmployee : System.Web.UI.Page
             ddlEmployeeCity.Items.Clear();
         }
     }
+
+
 }

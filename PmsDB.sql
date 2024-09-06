@@ -241,6 +241,69 @@ from tblCity
 where @StateID = StateID
 end;
 
+CREATE TABLE tblCompanyIndustry (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    IndustryName NVARCHAR(255) NOT NULL
+);
+
+INSERT INTO tblCompanyIndustry (IndustryName) VALUES ('Technology');
+INSERT INTO tblCompanyIndustry (IndustryName) VALUES ('Healthcare');
+INSERT INTO tblCompanyIndustry (IndustryName) VALUES ('Finance');
+INSERT INTO tblCompanyIndustry (IndustryName) VALUES ('Education');
+INSERT INTO tblCompanyIndustry (IndustryName) VALUES ('Manufacturing');
+
+select * from tblCompanyIndustry
+
+
+CREATE PROC Usp_GetCompanyIndustries
+AS
+BEGIN
+	SELECT ID, IndustryName
+	FROM tblCompanyIndustry;
+END;
+
+SELECT * from tblCompanyRegistration;
+EXEC sp_rename 'tblCompanyRegistration.ComnayPersonName',  'CompanyPersonName', 'COLUMN';
+
+
+Alter PROC Usp_insertCompanyRegistration
+(
+@CompanyName VARCHAR(50)= NULL,
+@CompanyRegistrationNumber INT,
+@CompanyIndustry VARCHAR(50) = NULL,
+@CompanyPersonName VARCHAR(50) = NULL,
+@CompanyPersonNumber VARCHAR(50) = NULL,
+@CompanyPersonEmail VARCHAR(50) = NULL,
+@CompanyStateName VARCHAR(50) = NULL,
+@CompanyStateCity VARCHAR(50) = NULL,
+@CompanyAddress VARCHAR(50) = NULL
+)
+AS
+BEGIN
+INSERT INTO tblCompanyRegistration([CompanyName], [CompanyRegistrationNumber], [CompanyIndustry], [CompanyPersonName], [CompanyPersonNumber], [CompanyPersonEmailID], [CompanyState], [CompanyCity], [CompanyAddress])
+Values
+(
+@CompanyName,
+@CompanyRegistrationNumber,
+@CompanyIndustry,
+@CompanyPersonName,
+@CompanyPersonNumber,
+@CompanyPersonEmail,
+@CompanyStateName,
+@CompanyStateCity,
+@CompanyAddress
+)
+END;
+
+select * from  tblCompanyRegistration;
+
+
+CREATE PROC Usp_GetGridData
+AS
+BEGIN
+SELECT [ID], [CompanyName], [CompanyRegistrationNumber], [CompanyIndustry], [CompanyPersonName], [CompanyPersonNumber], [CompanyPersonEmailID], [CompanyState], [CompanyCity], [CompanyAddress] FROM tblCompanyRegistration
+END;
+
 
 
 

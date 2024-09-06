@@ -6,35 +6,85 @@
 
     <style>
         fieldset {
-            border: 1px solid black;
+            border: 1px solid #007bff;
             border-radius: 0.5rem;
-            padding: 0.5rem 2rem 0.5rem 2rem;
+            padding: 0.5rem 2rem;
             width: auto;
-            border-color: #717FF5;
+            border-color: #007bff;
+            background-color: #f8f9fa;
         }
 
         legend {
-            border-color: #b65fc3e4;
+            border-color: #007bff;
             border-radius: 0.5rem;
             padding: 0.3rem 0.5rem;
-            border: 1px solid #717FF5;
-            color: #717FF5;
+            border: 1px solid #007bff;
+            color: #007bff;
             width: auto;
             margin-top: -2%;
             float: initial;
-            font-size: 15px;
+            font-size: 1rem;
             font-weight: 600;
+            background-color: white;
+        }
+
+        .form-control {
+            border-color: #007bff;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+            .btn-success:hover {
+                background-color: #218838;
+                border-color: #1e7e34;
+            }
+
+        .btn-outline-danger {
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+
+            .btn-outline-danger:hover {
+                background-color: #dc3545;
+                color: #fff;
+            }
+
+        .form-floating label {
+            font-size: 0.8rem;
+        }
+
+        .form-floating .form-control {
+            font-size: 0.8rem;
+        }
+
+        .required-field-validator {
+            font-size: 0.8rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-3 {
+            margin-top: 1rem;
+        }
+
+        .mt-4 {
+            margin-top: 1.5rem;
         }
     </style>
     <main id="main" class="main">
-        <div class="container-fluid">
+        <div class="container-fluid ">
             <div class="card">
                 <div class="card-header">
-                    <h1>Ragister Employee</h1>
+                    <h1 class="fw-semibold">Register Employees</h1>
                 </div>
                 <div class="card-body py-3">
                     <fieldset>
-                        <legend>Fill Employee Details
+                        <legend class="fw-semibold">Required Details
                         </legend>
                         <from class="form-control py-2">
                             <div class="row mt-3">
@@ -121,18 +171,16 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" for="lblCompanyShift">Working Shift</label>
-                                    <asp:DropDownList CssClass="form-control form-select fw-semibold py-3 mt-1" ID="ddlCompanyShift" Style="font-size: 0.8rem; border-color: #717FF5;" runat="server">
+                                    <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" for="lblEmployeeShift">Working Shift</label>
+                                    <asp:DropDownList CssClass="form-control form-select fw-semibold py-3 mt-1" ID="ddlEmployeeShift" Style="font-size: 0.8rem; border-color: #717FF5;" runat="server">
                                         <asp:ListItem Text="Select Shift" Value="0" />
                                         <asp:ListItem Text="Day" Value="1" />
                                         <asp:ListItem Text="Night" Value="2" />
                                     </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;" ControlToValidate="ddlCompanyShift" InitialValue="0" runat="server" Display="Dynamic" />
+                                    <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;" ControlToValidate="ddlEmployeeShift" InitialValue="0" runat="server" Display="Dynamic" />
                                 </div>
 
                             </div>
-
-
                             <div class="row mt-3 ">
                                 <div class="col-md-4">
                                     <asp:DropDownList CssClass="form-select form-control fw-semibold py-3 mt-1" ID="ddlEmployeeGender" Style="font-size: 0.8rem; border-color: #717FF5;" runat="server">
@@ -149,7 +197,7 @@
                                         ID="ddlEmployeeState"
                                         runat="server"
                                         AutoPostBack="True"
-                                        OnSelectedIndexChanged="ddlEmployeeState_SelectedIndexChanged1">
+                                        OnSelectedIndexChanged="ddlEmployeeState_SelectedIndexChanged">
                                         <asp:ListItem Text="Select State" Value="0" />
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ErrorMessage="Required"
@@ -196,13 +244,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-2">
-                                    <asp:Button runat="server" class="btn btn-success fw-semibold py-2 px-5" Text="Save" />
-                                </div>
-                                <div class="col-md-2">
-                                    <asp:Button runat="server" class="btn btn-outline-danger fw-semibold  py-2 px-4 ml-3" Text="Reset" />
-                                </div>
+                            <div class="row-md-3 mt-3">
+                                <asp:Button runat="server" class="btn btn-success fw-semibold py-2 px-5" Text="Save" />
+                                <asp:Button runat="server" class="btn btn-outline-danger fw-semibold  py-2 px-4 ml-3" Text="Reset" />
                             </div>
                         </from>
                     </fieldset>
@@ -212,6 +256,7 @@
     </main>
 
     <script>
+        <%--document.getElementById('<%= txtEmployeeDOB.ClientID %>').setAttribute('placeholder', 'Select Date');--%>
     </script>
 </asp:Content>
 
