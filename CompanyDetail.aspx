@@ -99,7 +99,7 @@
                                     <asp:RegularExpressionValidator ErrorMessage="Enter valid Name" ForeColor="Red" Style="font-size: 0.8rem;"
                                         ControlToValidate="TxtCompanyName" ValidationExpression="^[A-Za-z]+$" runat="server" Display="Dynamic" />--%>
                                 </div>
-                                s
+                            
 
                                 <div class="col-md-4 mt-md-5">
                                     <div class="form-floating ">
