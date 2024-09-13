@@ -97,7 +97,7 @@ public partial class CompanyDetail : System.Web.UI.Page
 
         SqlCommand cmd;
 
-        if (btnRegistrainSubmit.Text == "Save")
+        if (btnRegistrainSubmit.Text == "Submit")
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connection"].ConnectionString);
             cmd = new SqlCommand("Usp_insertCompanyRegistration", conn);
@@ -111,6 +111,26 @@ public partial class CompanyDetail : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@CompanyStateName", ddlCompanyState.SelectedItem.Text);
             cmd.Parameters.AddWithValue("@CompanyStateCity", ddlCompanyCity.SelectedItem.Text);
             cmd.Parameters.AddWithValue("@CompanyAddress", txtCompanyAddress.Text.Trim());
+
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            GridView1.DataBind();
+            BindGridCompany();
+            conn.Close();
+
+            TxtCompanyName.Text = "";
+            txtCompanyRagistrationNum.Text = "";
+            ddlIndustry.SelectedValue = "0";
+            txtCompanyContectPersonName.Text = "";
+            txtCompanyContectPersonNum.Text = "";
+            txtCompanyContectPersonEmail.Text = "";
+            ddlCompanyState.SelectedValue = "0";
+            ddlCompanyCity.SelectedValue = "0";
+            txtCompanyAddress.Text = "";
+
+
+
         }
         else if (btnRegistrainSubmit.Text == "Update")
         {
@@ -164,18 +184,18 @@ public partial class CompanyDetail : System.Web.UI.Page
             Label glblCompanyPersonName = (Label)row.FindControl("glblCompanyPersonName");
             Label glblCompanyPersonNumbar = (Label)row.FindControl("glblCompanyPersonNumbar");
             Label glblCompanyPersonEmail = (Label)row.FindControl("glblCompanyPersonEmail");
-            ////Label glblCompanyStateName = (Label)row.FindControl("glblCompanyStateName");
-            ////Label glblCompanyStateCity = (Label)row.FindControl("glblCompanyStateCity");
+            Label glblCompanyState = (Label)row.FindControl("glblCompanyState");
+            Label glblCompanyCity = (Label)row.FindControl("glblCompanyCity");
             Label glblCompanyAdderss = (Label)row.FindControl("glblCompanyAdderss");
 
             TxtCompanyName.Text = glblCompanyName.Text;
             txtCompanyRagistrationNum.Text = glblCompanyRegistrationNumber.Text;
-            ddlIndustry.SelectedValue = glblCompanyIndustry.Text;
+            ddlIndustry.Text = glblCompanyIndustry.Text;
             txtCompanyContectPersonName.Text = glblCompanyPersonName.Text;
             txtCompanyContectPersonNum.Text = glblCompanyPersonNumbar.Text;
             txtCompanyContectPersonEmail.Text = glblCompanyPersonEmail.Text;
-            ////ddlCompanyState.SelectedValue = glblCompanyStateName.Text;
-            ////ddlCompanyCity.SelectedValue = glblCompanyStateCity.Text;
+            ddlCompanyState.Text = glblCompanyState.Text;
+            ddlCompanyCity.Text = glblCompanyCity.Text;
             txtCompanyAddress.Text = glblCompanyAdderss.Text;
 
             btnRegistrainSubmit.Text = "Update";
