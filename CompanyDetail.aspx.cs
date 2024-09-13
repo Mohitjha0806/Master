@@ -13,7 +13,7 @@ public partial class CompanyDetail : System.Web.UI.Page
         {
             BindState();
             BindCompanyIndustry();
-            this.BindGridCompany();
+            BindGridCompany();
         }
     }
 
@@ -24,8 +24,7 @@ public partial class CompanyDetail : System.Web.UI.Page
             SqlCommand cmd = new SqlCommand("uspGetState", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             conn.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            ddlCompanyState.DataSource = reader;
+            ddlCompanyState.DataSource = cmd.ExecuteReader();
             ddlCompanyState.DataTextField = "StateName";
             ddlCompanyState.DataValueField = "StateID";
             ddlCompanyState.DataBind();
@@ -41,8 +40,7 @@ public partial class CompanyDetail : System.Web.UI.Page
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@StateID", StateID);
             conn.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            ddlCompanyCity.DataSource = reader;
+            ddlCompanyCity.DataSource = cmd.ExecuteReader();
             ddlCompanyCity.DataTextField = "CityName";
             ddlCompanyCity.DataValueField = "CityID";
             ddlCompanyCity.DataBind();
@@ -69,8 +67,7 @@ public partial class CompanyDetail : System.Web.UI.Page
             SqlCommand cmd = new SqlCommand("Usp_GetCompanyIndustries", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             conn.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            ddlIndustry.DataSource = reader;
+            ddlIndustry.DataSource = cmd.ExecuteReader();
             ddlIndustry.DataTextField = "IndustryName";
             ddlIndustry.DataValueField = "ID";
             ddlIndustry.DataBind();
@@ -94,80 +91,46 @@ public partial class CompanyDetail : System.Web.UI.Page
 
     protected void btnRegistrainSubmit_Click(object sender, EventArgs e)
     {
-
         SqlCommand cmd;
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connection"].ConnectionString);
+        cmd = new SqlCommand(btnRegistrainSubmit.Text == "Submit" ? "Usp_insertCompanyRegistration" : "Usp_UpdateCompanyRow", conn);
+        cmd.CommandType = CommandType.StoredProcedure;
 
-        if (btnRegistrainSubmit.Text == "Submit")
+        if (btnRegistrainSubmit.Text == "Update")
         {
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connection"].ConnectionString);
-            cmd = new SqlCommand("Usp_insertCompanyRegistration", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@CompanyName", TxtCompanyName.Text.Trim());
-            cmd.Parameters.AddWithValue("@CompanyRegistrationNumber", txtCompanyRagistrationNum.Text.Trim());
-            cmd.Parameters.AddWithValue("@CompanyIndustry", ddlIndustry.SelectedItem.Text);
-            cmd.Parameters.AddWithValue("@CompanyPersonName", txtCompanyContectPersonName.Text.Trim());
-            cmd.Parameters.AddWithValue("@CompanyPersonNumber", txtCompanyContectPersonNum.Text.Trim());
-            cmd.Parameters.AddWithValue("@CompanyPersonEmail", txtCompanyContectPersonEmail.Text.Trim());
-            cmd.Parameters.AddWithValue("@CompanyStateName", ddlCompanyState.SelectedItem.Text);
-            cmd.Parameters.AddWithValue("@CompanyStateCity", ddlCompanyCity.SelectedItem.Text);
-            cmd.Parameters.AddWithValue("@CompanyAddress", txtCompanyAddress.Text.Trim());
-
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
-            GridView1.DataBind();
-            BindGridCompany();
-            conn.Close();
-
-            TxtCompanyName.Text = "";
-            txtCompanyRagistrationNum.Text = "";
-            ddlIndustry.SelectedValue = "0";
-            txtCompanyContectPersonName.Text = "";
-            txtCompanyContectPersonNum.Text = "";
-            txtCompanyContectPersonEmail.Text = "";
-            ddlCompanyState.SelectedValue = "0";
-            ddlCompanyCity.SelectedValue = "0";
-            txtCompanyAddress.Text = "";
-
-
-
-        }
-        else if (btnRegistrainSubmit.Text == "Update")
-        {
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connection"].ConnectionString);
-            conn.Open();
-            cmd = new SqlCommand("Usp_UpdateCompanyRow", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@ID", ViewState["glblID"]);
-            cmd.Parameters.AddWithValue("@CompanyName", TxtCompanyName.Text.Trim());
-            cmd.Parameters.AddWithValue("@CompanyRegistrationNumber", txtCompanyRagistrationNum.Text.Trim());
-            cmd.Parameters.AddWithValue("@CompanyIndustry", ddlIndustry.SelectedItem.Text);
-            cmd.Parameters.AddWithValue("@CompanyPersonName", txtCompanyContectPersonName.Text.Trim());
-            cmd.Parameters.AddWithValue("@CompanyPersonNumber", txtCompanyContectPersonNum.Text.Trim());
-            cmd.Parameters.AddWithValue("@CompanyPersonEmail", txtCompanyContectPersonEmail.Text.Trim());
-            cmd.Parameters.AddWithValue("@CompanyStateName", ddlCompanyState.SelectedItem.Text);
-            cmd.Parameters.AddWithValue("@CompanyStateCity", ddlCompanyCity.SelectedItem.Text);
-            cmd.Parameters.AddWithValue("@CompanyAddress", txtCompanyAddress.Text.Trim());
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
-            GridView1.DataBind();
-            conn.Close();
-
-            TxtCompanyName.Text = "";
-            txtCompanyRagistrationNum.Text = "";
-            ddlIndustry.SelectedValue = "0";
-            txtCompanyContectPersonName.Text = "";
-            txtCompanyContectPersonNum.Text = "";
-            txtCompanyContectPersonEmail.Text = "";
-            ddlCompanyState.SelectedValue = "0";
-            ddlCompanyCity.SelectedValue = "0";
-            txtCompanyAddress.Text = "";
-
-            btnRegistrainSubmit.Text = "Submit";
-            BindGridCompany();
-
         }
+
+        cmd.Parameters.AddWithValue("@CompanyName", TxtCompanyName.Text.Trim());
+        cmd.Parameters.AddWithValue("@CompanyRegistrationNumber", txtCompanyRagistrationNum.Text.Trim());
+        cmd.Parameters.AddWithValue("@CompanyIndustry", ddlIndustry.SelectedItem.Text);
+        cmd.Parameters.AddWithValue("@CompanyPersonName", txtCompanyContectPersonName.Text.Trim());
+        cmd.Parameters.AddWithValue("@CompanyPersonNumber", txtCompanyContectPersonNum.Text.Trim());
+        cmd.Parameters.AddWithValue("@CompanyPersonEmail", txtCompanyContectPersonEmail.Text.Trim());
+        cmd.Parameters.AddWithValue("@CompanyStateName", ddlCompanyState.SelectedItem.Text);
+        cmd.Parameters.AddWithValue("@CompanyStateCity", ddlCompanyCity.SelectedItem.Text);
+        cmd.Parameters.AddWithValue("@CompanyAddress", txtCompanyAddress.Text.Trim());
+
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
+        BindGridCompany();
+
+        ClearForm();
+        btnRegistrainSubmit.Text = "Submit";
+    }
+
+    private void ClearForm()
+    {
+        TxtCompanyName.Text = "";
+        txtCompanyRagistrationNum.Text = "";
+        ddlIndustry.SelectedValue = "0";
+        txtCompanyContectPersonName.Text = "";
+        txtCompanyContectPersonNum.Text = "";
+        txtCompanyContectPersonEmail.Text = "";
+        ddlCompanyState.SelectedValue = "0";
+        ddlCompanyCity.SelectedValue = "0";
+        txtCompanyAddress.Text = "";
     }
 
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -176,53 +139,47 @@ public partial class CompanyDetail : System.Web.UI.Page
         conn.Open();
         SqlCommand cmd;
         GridViewRow row = (GridViewRow)((Control)e.CommandSource).NamingContainer;
+
         if (e.CommandName == "UpdateRecord")
         {
-            Label glblCompanyName = (Label)row.FindControl("glblCompanyName");
-            Label glblCompanyRegistrationNumber = (Label)row.FindControl("glblCompanyRegistrationNumber");
-            Label glblCompanyIndustry = (Label)row.FindControl("glblCompanyIndustry");
-            Label glblCompanyPersonName = (Label)row.FindControl("glblCompanyPersonName");
-            Label glblCompanyPersonNumbar = (Label)row.FindControl("glblCompanyPersonNumbar");
-            Label glblCompanyPersonEmail = (Label)row.FindControl("glblCompanyPersonEmail");
-            Label glblCompanyState = (Label)row.FindControl("glblCompanyState");
-            Label glblCompanyCity = (Label)row.FindControl("glblCompanyCity");
-            Label glblCompanyAdderss = (Label)row.FindControl("glblCompanyAdderss");
+            Label glblID = (Label)row.FindControl("glblID");
+            ViewState["glblID"] = glblID.Text;
 
-            TxtCompanyName.Text = glblCompanyName.Text;
-            txtCompanyRagistrationNum.Text = glblCompanyRegistrationNumber.Text;
-            ddlIndustry.Text = glblCompanyIndustry.Text;
-            txtCompanyContectPersonName.Text = glblCompanyPersonName.Text;
-            txtCompanyContectPersonNum.Text = glblCompanyPersonNumbar.Text;
-            txtCompanyContectPersonEmail.Text = glblCompanyPersonEmail.Text;
-            ddlCompanyState.Text = glblCompanyState.Text;
-            ddlCompanyCity.Text = glblCompanyCity.Text;
-            txtCompanyAddress.Text = glblCompanyAdderss.Text;
+            SetFormValues(row);
 
             btnRegistrainSubmit.Text = "Update";
         }
         else if (e.CommandName == "DeleteRecord")
         {
-            string commandArgument = e.CommandArgument.ToString();
-            int id;
-            if (int.TryParse(commandArgument, out id))
-
+            string query = "DELETE FROM tblCompanyRegistration WHERE ID = @ID";
+            using (cmd = new SqlCommand(query, conn))
             {
-                string query = "DELETE FROM tblCompanyRegistration WHERE ID = @ID";
-                string constr = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
-
-
-                using (SqlConnection con = new SqlConnection(constr))
-                {
-                    using (cmd = new SqlCommand(query, con))
-                    {
-                        cmd.Parameters.AddWithValue("@ID", id);
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-                this.BindGridCompany();
+                cmd.Parameters.AddWithValue("@ID", e.CommandArgument.ToString());
+                cmd.ExecuteNonQuery();
             }
+            BindGridCompany();
         }
     }
-}
 
+    private void SetFormValues(GridViewRow row)
+    {
+        TxtCompanyName.Text = ((Label)row.FindControl("glblCompanyName")).Text;
+        txtCompanyRagistrationNum.Text = ((Label)row.FindControl("glblCompanyRegistrationNumber")).Text;
+        txtCompanyContectPersonName.Text = ((Label)row.FindControl("glblCompanyPersonName")).Text;
+        txtCompanyContectPersonNum.Text = ((Label)row.FindControl("glblCompanyPersonNumbar")).Text;
+        txtCompanyContectPersonEmail.Text = ((Label)row.FindControl("glblCompanyPersonEmail")).Text;
+        txtCompanyAddress.Text = ((Label)row.FindControl("glblCompanyAdderss")).Text;
+
+        SelectDropdownItem(ddlIndustry, ((Label)row.FindControl("glblCompanyIndustry")).Text);
+        SelectDropdownItem(ddlCompanyState, ((Label)row.FindControl("glblCompanyState")).Text);
+        SelectDropdownItem(ddlCompanyCity, ((Label)row.FindControl("glblCompanyCity")).Text);
+    }
+
+    private void SelectDropdownItem(DropDownList ddl, string value)
+    {
+        ddl.ClearSelection();
+        ListItem newItem = new ListItem(value, "0");
+        ddl.Items.Add(newItem);
+        newItem.Selected = true;
+    }
+}

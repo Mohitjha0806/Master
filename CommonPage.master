@@ -207,7 +207,7 @@
 
                             <li>
                                 <a href="CompanyDetail.aspx">
-                                    <i class="bi bi-circle"></i><span>Company Details</span>
+                                    <i class="bi bi-circle"></i><span>Add Company</span>
                                 </a>
                             </li>
 
