@@ -81,6 +81,7 @@
             <div class="card">
                 <div class="card-header">
                     <h1 class="fw-semibold">Register Your Company</h1>
+
                 </div>
                 <div class="card-body py-3">
                     <fieldset>
@@ -94,10 +95,10 @@
                                             placeholder="Enter Company Name" />
                                         <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Company Name" for="TxtCompanyName">Enter Company Name</label>
                                     </div>
-                                   <%-- <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" ValidationGroup="SubmitGroup" Style="font-size: 0.8rem;"
+                                    <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" ValidationGroup="SubmitGroup" Style="font-size: 0.8rem;"
                                         ControlToValidate="TxtCompanyName" runat="server" Display="Dynamic" />
                                     <asp:RegularExpressionValidator ErrorMessage="Enter valid Name" ValidationGroup="SubmitGroup" ForeColor="Red" Style="font-size: 0.8rem;"
-                                        ControlToValidate="TxtCompanyName" ValidationExpression="^[A-Za-z]+(?: [A-Za-z]+)*$" runat="server" Display="Dynamic" />--%>
+                                        ControlToValidate="TxtCompanyName" ValidationExpression="^[A-Za-z]+(?: [A-Za-z]+)*$" runat="server" Display="Dynamic" />
                                 </div>
 
 
@@ -214,7 +215,7 @@
                                     <asp:Button runat="server" class="btn btn-success fw-semibold px-4" ValidationGroup="SubmitGroup" ID="btnRegistrainSubmit" Text="Submit" OnClick="btnRegistrainSubmit_Click" IsPostBack="true" />
                                     <asp:Button runat="server" class="btn btn-outline-danger fw-semibold" Text="Reset" />
                                 </div>
-                                
+
                             </div>
                         </form>
                     </fieldset>
@@ -225,92 +226,93 @@
                 <div class="card-header">
                     <h1 class="fw-semibold">Company Details</h1>
                 </div>
-                <div class="card-body py-1">
-                    <fieldset class="table-responsive-md table-responsive">
-                        <legend class="fw-semibold">All Companies</legend>
-                        <asp:GridView runat="server" ID="GridView1" AutoGenerateColumns="false" CssClass="table table-bordered table-hover bordered border-dark-subtle px-3" DataKeyNames="ID" OnRowCommand="GridView1_RowCommand">
-                            <Columns>
-
-                                <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" Visible="false" HeaderText="ID">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%#Eval("ID") %>' runat="server" ID="glblID" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-
-                                <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Company Name">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%#Eval("CompanyName")%>' runat="server" ID="glblCompanyName" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-
-                                <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Company Registration Number">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%#Eval("CompanyRegistrationNumber")%>' runat="server" ID="glblCompanyRegistrationNumber" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-
-                                <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Company Industry">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%#Eval("CompanyIndustry")%>' runat="server" ID="glblCompanyIndustry" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <%--  --%>
-                                <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Company Person Name">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%#Eval("CompanyPersonName")%>' runat="server" ID="glblCompanyPersonName" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-
-                                <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Company Person Numbar">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%#Eval("CompanyPersonNumber")%>' runat="server" ID="glblCompanyPersonNumbar" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-
-                                <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center " HeaderText="Company Person Email">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%#Eval("CompanyPersonEmailID")%>' runat="server" ID="glblCompanyPersonEmail" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-
-                                <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Company State">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%#Eval("CompanyState")%>' runat="server" ID="glblCompanyState" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-
-                                <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Company City">
-                                    <ItemTemplate>
-                                        <asp:Label Text='<%#Eval("CompanyCity")%>' runat="server" ID="glblCompanyCity" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-
-                                <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" Visible="false" HeaderText="Company Adderss">
-                                    <ItemTemplate>
-                                        <asp:Label CssClass="form-label" Text='<%#Eval("CompanyAddress")%>' runat="server" ID="glblCompanyAdderss" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-
-                                <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Update/Delete">
-                                    <ItemTemplate>
-                                        <div class="row">
-                                            <div class="col-md-6 ">
-                                                <asp:Button Text="Update" CssClass="btn btn-warning btn-sm" runat="server" CommandName="UpdateRecord" CommandArgument='<%#Eval("ID")%>' IsPostBack="true" />
-                                            </div>
-                                            <br />
-                                            <br />
-                                            <div class="col-md-6">
-                                                <asp:Button Text="Delete" CssClass="btn btn-danger btn-sm" CommandName="DeleteRecord" runat="server" CommandArgument='<%#Eval("ID")%>' IsPostBack="true" />
-                                            </div>
-                                        </div>
-
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
-                    </fieldset>
-                </div>
             </div>
+            <div class="card-body py-1">
+                <fieldset class="table-responsive-md table-responsive">
+                    <legend class="fw-semibold">All Companies</legend>
+                    <asp:GridView runat="server" ID="GridView1" AutoGenerateColumns="false" CssClass="table table-bordered table-hover bordered border-dark-subtle px-3" DataKeyNames="ID" OnRowCommand="GridView1_RowCommand">
+                        <Columns>
+
+                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" Visible="false" HeaderText="ID">
+                                <ItemTemplate>
+                                    <asp:Label Text='<%#Eval("ID") %>' runat="server" ID="glblID" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Company Name">
+                                <ItemTemplate>
+                                    <asp:Label Text='<%#Eval("CompanyName")%>' runat="server" ID="glblCompanyName" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" Visible="false" HeaderText="Company Registration Number">
+                                <ItemTemplate>
+                                    <asp:Label Text='<%#Eval("CompanyRegistrationNumber")%>' runat="server" ID="glblCompanyRegistrationNumber" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Company Industry">
+                                <ItemTemplate>
+                                    <asp:Label Text='<%#Eval("CompanyIndustry")%>' runat="server" ID="glblCompanyIndustry" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <%--  --%>
+                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" Visible="false" HeaderText="Company Person Name">
+                                <ItemTemplate>
+                                    <asp:Label Text='<%#Eval("CompanyPersonName")%>' runat="server" ID="glblCompanyPersonName" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" Visible="false" HeaderText="Company Person Numbar">
+                                <ItemTemplate>
+                                    <asp:Label Text='<%#Eval("CompanyPersonNumber")%>' runat="server" ID="glblCompanyPersonNumbar" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center " Visible="false" HeaderText="Company Person Email">
+                                <ItemTemplate>
+                                    <asp:Label Text='<%#Eval("CompanyPersonEmailID")%>' runat="server" ID="glblCompanyPersonEmail" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Company State">
+                                <ItemTemplate>
+                                    <asp:Label Text='<%#Eval("CompanyState")%>' runat="server" ID="glblCompanyState" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Company City">
+                                <ItemTemplate>
+                                    <asp:Label Text='<%#Eval("CompanyCity")%>' runat="server" ID="glblCompanyCity" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" Visible="false" HeaderText="Company Adderss">
+                                <ItemTemplate>
+                                    <asp:Label CssClass="form-label" Text='<%#Eval("CompanyAddress")%>' runat="server" ID="glblCompanyAdderss" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Update/Delete">
+                                <ItemTemplate>
+                                    <div class="row">
+                                        <div class="col-md-6 ">
+                                            <asp:Button Text="Update" CssClass="btn btn-warning btn-sm" runat="server" CommandName="UpdateRecord" CommandArgument='<%#Eval("ID")%>' IsPostBack="true" />
+                                        </div>
+                                        <br />
+                                        <br />
+                                        <div class="col-md-6">
+                                            <asp:Button Text="Delete" CssClass="btn btn-danger btn-sm" CommandName="DeleteRecord" runat="server" CommandArgument='<%#Eval("ID")%>' IsPostBack="true" />
+                                        </div>
+                                    </div>
+
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                </fieldset>
+            </div>
+        </div>
         </div>
     </main>
 </asp:Content>

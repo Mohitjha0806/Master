@@ -182,4 +182,5 @@ public partial class CompanyDetail : System.Web.UI.Page
         ddl.Items.Add(newItem);
         newItem.Selected = true;
     }
+
 }
