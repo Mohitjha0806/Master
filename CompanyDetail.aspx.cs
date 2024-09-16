@@ -185,7 +185,7 @@ public partial class CompanyDetail : System.Web.UI.Page
         SelectDropdownItem(ddlCompanyState, ((Label)row.FindControl("glblCompanyState")).Text);
         SelectDropdownItem(ddlCompanyCity, ((Label)row.FindControl("glblCompanyCity")).Text);
     }
-
+    //mohit
     private void SelectDropdownItem(DropDownList ddl, string value)
     {
         ddl.ClearSelection();
