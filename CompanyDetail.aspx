@@ -4,6 +4,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+
     <style>
         fieldset {
             border: 1px solid #007bff;
@@ -223,96 +224,88 @@
             </div>
 
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-light">
                     <h1 class="fw-semibold">Company Details</h1>
                 </div>
             </div>
-            <div class="card-body py-1">
+            <div class="card-body py-1 bg-light">
                 <fieldset class="table-responsive-md table-responsive">
                     <legend class="fw-semibold">All Companies</legend>
-                    <asp:GridView runat="server" ID="GridView1" AutoGenerateColumns="false" CssClass="table table-bordered table-hover bordered border-dark-subtle px-3" DataKeyNames="ID" OnRowCommand="GridView1_RowCommand">
+                    <asp:GridView runat="server" ID="GridView1" AutoGenerateColumns="false" CssClass="table table-bordered table-hover w-100 bg-transparent" DataKeyNames="ID" OnRowCommand="GridView1_RowCommand">
                         <Columns>
-
-                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" Visible="false" HeaderText="ID">
+                            <asp:TemplateField HeaderStyle-CssClass="d-none" Visible="false" HeaderText="ID">
                                 <ItemTemplate>
                                     <asp:Label Text='<%#Eval("ID") %>' runat="server" ID="glblID" />
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Company Name">
+                            <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Company Name">
                                 <ItemTemplate>
-                                    <asp:Label Text='<%#Eval("CompanyName")%>' runat="server" ID="glblCompanyName" />
+                                    <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("CompanyName")%>' runat="server" ID="glblCompanyName" />
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" Visible="false" HeaderText="Company Registration Number">
+                            <asp:TemplateField HeaderStyle-CssClass="d-none" Visible="false" HeaderText="Company Registration Number">
                                 <ItemTemplate>
-                                    <asp:Label Text='<%#Eval("CompanyRegistrationNumber")%>' runat="server" ID="glblCompanyRegistrationNumber" />
+                                    <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("CompanyRegistrationNumber")%>' runat="server" ID="glblCompanyRegistrationNumber" />
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Company Industry">
+                            <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Company Industry">
                                 <ItemTemplate>
-                                    <asp:Label Text='<%#Eval("CompanyIndustry")%>' runat="server" ID="glblCompanyIndustry" />
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <%--  --%>
-                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" Visible="false" HeaderText="Company Person Name">
-                                <ItemTemplate>
-                                    <asp:Label Text='<%#Eval("CompanyPersonName")%>' runat="server" ID="glblCompanyPersonName" />
+                                    <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("CompanyIndustry")%>' runat="server" ID="glblCompanyIndustry" />
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" Visible="false" HeaderText="Company Person Numbar">
+                            <asp:TemplateField HeaderStyle-CssClass="d-none" Visible="false" HeaderText="Company Person Name">
                                 <ItemTemplate>
-                                    <asp:Label Text='<%#Eval("CompanyPersonNumber")%>' runat="server" ID="glblCompanyPersonNumbar" />
+                                    <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("CompanyPersonName")%>' runat="server" ID="glblCompanyPersonName" />
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center " Visible="false" HeaderText="Company Person Email">
+                            <asp:TemplateField HeaderStyle-CssClass="d-none" Visible="false" HeaderText="Company Person Number">
                                 <ItemTemplate>
-                                    <asp:Label Text='<%#Eval("CompanyPersonEmailID")%>' runat="server" ID="glblCompanyPersonEmail" />
+                                    <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("CompanyPersonNumber")%>' runat="server" ID="glblCompanyPersonNumbar" />
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Company State">
+                            <asp:TemplateField HeaderStyle-CssClass="d-none" Visible="false" HeaderText="Company Person Email">
                                 <ItemTemplate>
-                                    <asp:Label Text='<%#Eval("CompanyState")%>' runat="server" ID="glblCompanyState" />
+                                    <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("CompanyPersonEmailID")%>' runat="server" ID="glblCompanyPersonEmail" />
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Company City">
+                            <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Company State">
                                 <ItemTemplate>
-                                    <asp:Label Text='<%#Eval("CompanyCity")%>' runat="server" ID="glblCompanyCity" />
+                                    <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("CompanyState")%>' runat="server" ID="glblCompanyState" />
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" Visible="false" HeaderText="Company Adderss">
+                            <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Company City">
                                 <ItemTemplate>
-                                    <asp:Label CssClass="form-label" Text='<%#Eval("CompanyAddress")%>' runat="server" ID="glblCompanyAdderss" />
+                                    <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("CompanyCity")%>' runat="server" ID="glblCompanyCity" />
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderStyle-CssClass="p-4 justify-content-center" HeaderText="Update/Delete">
+                            <asp:TemplateField HeaderStyle-CssClass="d-none" Visible="false" HeaderText="Company Address">
                                 <ItemTemplate>
-                                    <div class="row">
-                                        <div class="col-md-6 ">
-                                            <asp:Button Text="Update" CssClass="btn btn-warning btn-sm" runat="server" CommandName="UpdateRecord" CommandArgument='<%#Eval("ID")%>' IsPostBack="true" />
-                                        </div>
-                                        <br />
-                                        <br />
-                                        <div class="col-md-6">
-                                            <asp:Button Text="Delete" CssClass="btn btn-danger btn-sm" CommandName="DeleteRecord" runat="server" CommandArgument='<%#Eval("ID")%>' IsPostBack="true" />
-                                        </div>
+                                    <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("CompanyAddress")%>' runat="server" ID="glblCompanyAdderss" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Update/Delete">
+                                <ItemTemplate>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <asp:Button Text="Update" CssClass="btn btn-warning btn-sm me-2" runat="server" CommandName="UpdateRecord" CommandArgument='<%#Eval("ID")%>' IsPostBack="true" />
+                                        <asp:Button Text="Delete" CssClass="btn btn-danger btn-sm ms-2" runat="server" CommandName="DeleteRecord" CommandArgument='<%#Eval("ID")%>' IsPostBack="true" />
                                     </div>
-
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
+
                 </fieldset>
             </div>
-        </div>
         </div>
     </main>
 </asp:Content>
