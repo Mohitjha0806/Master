@@ -103,7 +103,7 @@ public partial class CompanyDetail : System.Web.UI.Page
 
         cmd.Parameters.AddWithValue("@CompanyName", TxtCompanyName.Text.Trim());
         cmd.Parameters.AddWithValue("@CompanyRegistrationNumber", txtCompanyRagistrationNum.Text.Trim());
-        cmd.Parameters.AddWithValue("@CompanyIndustry", ddlIndustry.SelectedItem.Text);
+        cmd.Parameters.AddWithValue("@CompanyIndustry", ddlIndustry.SelectedValue);
         cmd.Parameters.AddWithValue("@CompanyPersonName", txtCompanyContectPersonName.Text.Trim());
         cmd.Parameters.AddWithValue("@CompanyPersonNumber", txtCompanyContectPersonNum.Text.Trim());
         cmd.Parameters.AddWithValue("@CompanyPersonEmail", txtCompanyContectPersonEmail.Text.Trim());
@@ -140,6 +140,17 @@ public partial class CompanyDetail : System.Web.UI.Page
         SqlCommand cmd;
         GridViewRow row = (GridViewRow)((Control)e.CommandSource).NamingContainer;
 
+        Label glblCompanyName = (Label)row.FindControl("glblCompanyName");
+        Label glblCompanyIndustry = (Label)row.FindControl("glblCompanyIndustry");
+
+
+        ddlIndustry.Items.Clear();
+        BindCompanyIndustry();
+        ddlIndustry.Items.FindByValue(glblCompanyIndustry.Text).Selected = true;
+        TxtCompanyName.Text = glblCompanyName.Text;
+
+
+
         if (e.CommandName == "UpdateRecord")
         {
             Label glblID = (Label)row.FindControl("glblID");
@@ -163,14 +174,14 @@ public partial class CompanyDetail : System.Web.UI.Page
 
     private void SetFormValues(GridViewRow row)
     {
-        TxtCompanyName.Text = ((Label)row.FindControl("glblCompanyName")).Text;
+        //TxtCompanyName.Text = ((Label)row.FindControl("glblCompanyName")).Text;
         txtCompanyRagistrationNum.Text = ((Label)row.FindControl("glblCompanyRegistrationNumber")).Text;
         txtCompanyContectPersonName.Text = ((Label)row.FindControl("glblCompanyPersonName")).Text;
         txtCompanyContectPersonNum.Text = ((Label)row.FindControl("glblCompanyPersonNumbar")).Text;
         txtCompanyContectPersonEmail.Text = ((Label)row.FindControl("glblCompanyPersonEmail")).Text;
         txtCompanyAddress.Text = ((Label)row.FindControl("glblCompanyAdderss")).Text;
 
-        SelectDropdownItem(ddlIndustry, ((Label)row.FindControl("glblCompanyIndustry")).Text);
+        //SelectDropdownItem(ddlIndustry, ((Label)row.FindControl("glblCompanyIndustry")).Text);
         SelectDropdownItem(ddlCompanyState, ((Label)row.FindControl("glblCompanyState")).Text);
         SelectDropdownItem(ddlCompanyCity, ((Label)row.FindControl("glblCompanyCity")).Text);
     }
