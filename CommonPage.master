@@ -22,32 +22,10 @@
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <style> 
-        @mixin table-variant($state, $background) {
-  .table-#{$state} {
-    $color: color-contrast(opaque($body-bg, $background));
-    $hover-bg: mix($color, $background, percentage($table-hover-bg-factor));
-    $striped-bg: mix($color, $background, percentage($table-striped-bg-factor));
-    $active-bg: mix($color, $background, percentage($table-active-bg-factor));
-    $table-border-color: mix($color, $background, percentage($table-border-factor));
 
-    --#{$prefix}table-color: #{$color};
-    --#{$prefix}table-bg: #{$background};
-    --#{$prefix}table-border-color: #{$table-border-color};
-    --#{$prefix}table-striped-bg: #{$striped-bg};
-    --#{$prefix}table-striped-color: #{color-contrast($striped-bg)};
-    --#{$prefix}table-active-bg: #{$active-bg};
-    --#{$prefix}table-active-color: #{color-contrast($active-bg)};
-    --#{$prefix}table-hover-bg: #{$hover-bg};
-    --#{$prefix}table-hover-color: #{color-contrast($hover-bg)};
-
-    color: var(--#{$prefix}table-color);
-    border-color: var(--#{$prefix}table-border-color);
-  }
-}
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -210,105 +188,105 @@
             </nav>
 
         </header>
-        <sidebar>
-            <aside id="sidebar" class="sidebar">
 
-                <ul class="sidebar-nav" id="sidebar-nav">
+        <aside id="sidebar" class="sidebar">
 
-                    <li class="nav-heading">Production Details</li>
+            <ul class="sidebar-nav" id="sidebar-nav">
 
-                    <li class="nav-item">
-                        <a class="nav-link " href="Dashboard.aspx">
-                            <i class="bi bi-grid"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
+                <li class="nav-heading">Production Details</li>
 
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                            <i class="bi bi-menu-button-wide"></i><span>Company Master</span><i class="bi bi-chevron-down ms-auto"></i>
-                        </a>
-                        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li class="nav-item">
+                    <a class="nav-link " href="Dashboard.aspx">
+                        <i class="bi bi-grid"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
 
-                            <li>
-                                <a href="CompanyDetail.aspx">
-                                    <i class="bi bi-circle"></i><span>Add Company</span>
-                                </a>
-                            </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-menu-button-wide"></i><span>Company Master</span><i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 
-
-
-                        </ul>
-                    </li>
-                    <!-- End Components Nav -->
+                        <li>
+                            <a href="CompanyDetail.aspx">
+                                <i class="bi bi-circle"></i><span>Add Company</span>
+                            </a>
+                        </li>
 
 
-                    <li class="nav-heading">Human Resource Managment System</li>
 
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                            <i class="bi bi-layout-text-window-reverse"></i><span>HRMS</span><i class="bi bi-chevron-down ms-auto"></i>
-                        </a>
-                        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                            <li>
-                                <a href="AddNewEmployee.aspx">
-                                    <i class="bi bi-circle"></i><span>Add New Employee</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="tables-general.html">
-                                    <i class="bi bi-circle"></i><span>Change Employee Details</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="tables-general.html">
-                                    <i class="bi bi-circle"></i><span>Attendance Management</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="tables-data.html">
-                                    <i class="bi bi-circle"></i><span>All Employee</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- End Ta
+                    </ul>
+                </li>
+                <!-- End Components Nav -->
+
+
+                <li class="nav-heading">Human Resource Managment System</li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-layout-text-window-reverse"></i><span>HRMS</span><i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="AddNewEmployee.aspx">
+                                <i class="bi bi-circle"></i><span>Add New Employee</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tables-general.html">
+                                <i class="bi bi-circle"></i><span>Change Employee Details</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tables-general.html">
+                                <i class="bi bi-circle"></i><span>Attendance Management</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tables-data.html">
+                                <i class="bi bi-circle"></i><span>All Employee</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Ta
                     <!-- End Tables Nav -->
 
 
 
-                    <li class="nav-heading">Employee Detalis</li>
+                <li class="nav-heading">Employee Detalis</li>
 
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-                            <i class="bi bi-person"></i><span>Employe Master</span><i class="bi bi-chevron-down ms-auto"></i>
-                        </a>
-                        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                            <li>
-                                <a href="charts-chartjs.html">
-                                    <i class="bi bi-circle"></i><span>Employee Profile</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="charts-apexcharts.html">
-                                    <i class="bi bi-circle"></i><span>Attendance</span>
-                                </a>
-                            </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-person"></i><span>Employe Master</span><i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="charts-chartjs.html">
+                                <i class="bi bi-circle"></i><span>Employee Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="charts-apexcharts.html">
+                                <i class="bi bi-circle"></i><span>Attendance</span>
+                            </a>
+                        </li>
 
-                        </ul>
-                    </li>
-                    <!-- End Charts Nav -->
-
-
+                    </ul>
+                </li>
+                <!-- End Charts Nav -->
 
 
-                    <!-- End Blank Page Nav -->
 
-                </ul>
 
-            </aside>
-            <!-- End Sidebar-->
-        </sidebar>
+                <!-- End Blank Page Nav -->
+
+            </ul>
+
+        </aside>
+        <!-- End Sidebar-->
+
         <main>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
