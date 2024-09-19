@@ -15,10 +15,6 @@ public partial class CompanyDetail : System.Web.UI.Page
             BindState();
             BindCompanyIndustry();
             this.BindGridCompany();
-<<<<<<< HEAD
-
-=======
->>>>>>> 9e28eccf1d4a08b8fbbbdbbf75814353e226c114
         }
 
     }
@@ -117,31 +113,25 @@ public partial class CompanyDetail : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@CompanyStateName", ddlCompanyState.SelectedItem.Text);
             cmd.Parameters.AddWithValue("@CompanyStateCity", ddlCompanyCity.SelectedItem.Text);
             cmd.Parameters.AddWithValue("@CompanyAddress", txtCompanyAddress.Text.Trim());
-<<<<<<< HEAD
-        
+
+
             try
             {
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 sda.Fill(ds);
+                lblSuccessMsg.Visible = true;
+                lblErrorMsg.Visible = false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                lblerrorms.Visible = true;
+                lblSuccessMsg.Visible = false;
+                lblErrorMsg.Visible = true;
             }
-           
-            GridView1.DataBind();
-            conn.Close();
-            BindGridCompany();
-=======
 
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
             GridView1.DataBind();
-            BindGridCompany();
             conn.Close();
->>>>>>> 9e28eccf1d4a08b8fbbbdbbf75814353e226c114
+            BindGridCompany();
 
             TxtCompanyName.Text = "";
             txtCompanyRagistrationNum.Text = "";
@@ -152,9 +142,6 @@ public partial class CompanyDetail : System.Web.UI.Page
             ddlCompanyState.SelectedValue = "0";
             ddlCompanyCity.SelectedValue = "0";
             txtCompanyAddress.Text = "";
-
-
-
         }
         else if (btnRegistrainSubmit.Text == "Update")
         {
@@ -275,8 +262,4 @@ public partial class CompanyDetail : System.Web.UI.Page
             }
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9e28eccf1d4a08b8fbbbdbbf75814353e226c114

@@ -87,11 +87,11 @@
                     <h1 class="fw-semibold">Register Your Company</h1>
 
                 </div>
-                <div class="card-body py-3">
+                <div class="card-body ">
                     <fieldset class="py-4">
                         <legend class="fw-semibold">Required Details
                         </legend>
-                        <div class="row py-2">
+                        <div class="row ">
                             <form1 class="form-control">
                                 <div class="row">
                                     <div class="col-md-4 mt-md-3">
@@ -206,7 +206,7 @@
                                 <div class="row mt-2">
                                     <div class="col-md-12">
                                         <div class="form-floating">
-                                            <asp:TextBox runat="server" class="form-control fw-semibold" MaxLength="250" TextMode="MultiLine" Style="font-size: 0.8rem; border-color: #717FF5;" Rows="2" ID="txtCompanyAddress" placeholder="Enter Company Address" />
+                                            <asp:TextBox runat="server" class="form-control fw-semibold py-3 mt-1" MaxLength="250" TextMode="MultiLine" Style="font-size: 0.8rem; border-color: #717FF5;" Rows="2" ID="txtCompanyAddress" placeholder="Enter Company Address" />
                                             <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Company Name" for="floatingInput">Enter Company Address</label>
                                             <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" ValidationGroup="SubmitGroup" Style="font-size: 0.8rem;" ControlToValidate="txtCompanyAddress" runat="server" Display="Dynamic" />
                                         </div>
@@ -215,18 +215,22 @@
                                     </div>
                                 </div>
                                 <div class="row py-3">
-                                    <div class="col-md-12 ">
+                                    <div class="col-md-3 d-flex align-items-center">
                                         <asp:Button runat="server" class="btn btn-success fw-semibold px-4" ValidationGroup="SubmitGroup" ID="btnRegistrainSubmit" Text="Submit" OnClick="btnRegistrainSubmit_Click" IsPostBack="true" />
-                                        <asp:Button runat="server" class="btn btn-outline-danger fw-semibold" Text="Reset" />
+                                        <asp:Button runat="server" class="btn btn-outline-danger fw-semibold" style="margin-left:0.5rem;" Text="Reset" />
                                     </div>
-                                    <div runat="server" class="container py-2"  id="lblerrorms" visible="false">
-                                        <div runat="server" class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                                            <strong>Holy User!</strong>Please enter a unique company registration number.
-                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <div class="col-md-9 d-flex align-items-center py-3">
+                                        <div runat="server" class="container alert alert-danger alert-dismissible fade show py-2 z-3" role="alert" id="lblErrorMsg" visible="false">
+                                            <strong>Holy User!</strong>&nbsp; &nbsp; &nbsp; Please enter a unique company registration number.
+                                             <button type="button" class="btn-close py-2 mt-1" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                        <div runat="server" class="container alert alert-success alert-dismissible fade show" role="alert" id="lblSuccessMsg" visible="false">
+                                            <strong>Holy User!</strong>&nbsp; &nbsp; &nbsp;Data Save Successfully.
+                                             <button type="button" class="btn-close py-2 mt-1" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
                                     </div>
-
                                 </div>
+
                             </form1>
                         </div>
                     </fieldset>
@@ -326,5 +330,6 @@
             </div>
         </div>
     </main>
+
 </asp:Content>
 
