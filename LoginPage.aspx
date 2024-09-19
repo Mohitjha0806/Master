@@ -74,7 +74,7 @@
                         <div style="background-color: #ffffff;" class="card-footer">
                             <div class="row-md-6 py-2 gap-3 d-flex justify-content-center">
                                 <asp:Button Text="Login" ID="btnLogin1" CssClass="btn btn-dark px-5 py-2 fw-semibold" PostBackUrl="Dashboard.aspx" runat="server" />
-                                <asp:Button PostBackUrl="LoginPAge.aspx" ID="btnRegister" runat="server" Text="Ragister Now" Style="border: none; background-color: #ffffff; color: #000000;"
+                                <asp:Button PostBackUrl="LoginPAge.aspx" ID="btnRegister" runat="server" Text="Register Now" Style="border: none; background-color: #ffffff; color: #000000;"
                                     Font-Underline="true" CssClass="button-hover fw-semibold " OnClick="btnRegister_Click" AutoPostBack="true" />
                             </div>
 
@@ -88,7 +88,7 @@
                 <div class="col-md-6 p-0 m-0 py-3 d-flex align-items-center justify-content-center ">
                     <div class="card w-75 ">
                         <div style="background-color: #ffffff;" class="card-header">
-                            <h1 class="text-center fw-bold">Ragister Here!</h1>
+                            <h1 class="text-center fw-bold">Register Here!</h1>
                         </div>
                         <div class="card-body border-2 py-5 px-4">
                             <div class="row">

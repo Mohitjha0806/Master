@@ -9,11 +9,13 @@ public partial class CompanyDetail : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
         if (!IsPostBack)
         {
             BindState();
             BindCompanyIndustry();
             this.BindGridCompany();
+
         }
 
     }
@@ -112,10 +114,18 @@ public partial class CompanyDetail : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@CompanyStateName", ddlCompanyState.SelectedItem.Text);
             cmd.Parameters.AddWithValue("@CompanyStateCity", ddlCompanyCity.SelectedItem.Text);
             cmd.Parameters.AddWithValue("@CompanyAddress", txtCompanyAddress.Text.Trim());
-
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
+        
+            try
+            {
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                lblerrorms.Visible = true;
+            }
+           
             GridView1.DataBind();
             conn.Close();
             BindGridCompany();
