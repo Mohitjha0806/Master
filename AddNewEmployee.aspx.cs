@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net.Configuration;
 
 public partial class AddNewEmployee : System.Web.UI.Page
 {
@@ -51,10 +51,6 @@ public partial class AddNewEmployee : System.Web.UI.Page
         }
         ddlEmployeePosition.Items.Insert(0, new ListItem("Select Position", "0"));
     }
-
-
-
-   
 
     protected void ddlEmployeeDepartment_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -116,5 +112,68 @@ public partial class AddNewEmployee : System.Web.UI.Page
         }
     }
 
+
+
+    protected void btnSaveEmployeeRegistration_Click(object sender, EventArgs e)
+    {
+        try
+        {
+
+            if (btnSaveEmployeeRegistration.Text == "Save")
+            {
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connection"].ConnectionString);
+                SqlCommand cmd = new SqlCommand("usp_InsertEmployeeRegistration", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@CompanyRegistrationNumber", txtCompanyRagistrationNum.Text.Trim());
+                cmd.Parameters.AddWithValue("@EmployeeID", txtEmpID.Text.Trim());
+                cmd.Parameters.AddWithValue("@SelectEmployeeShift", ddlEmployeeShift.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@SelectEmployeeDepartment", ddlEmployeeDepartment.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@SelectEmployeePosition", ddlEmployeePosition.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@DateOfJJoining", txtEmployeeDOJ.Text.Trim());
+                cmd.Parameters.AddWithValue("@EmployeeFullName", txtEmpName.Text.Trim());
+                cmd.Parameters.AddWithValue("@EmployeeNumber", txtEmployeeContectNum.Text.Trim());
+                cmd.Parameters.AddWithValue("@EmployeeEmail", txtEmployeeContectEmail.Text.Trim());
+                cmd.Parameters.AddWithValue("@SelectEmployeeGender", ddlEmployeeGender.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@SelectEmployeeState", ddlEmployeeState.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@SelectEmployeeCity", ddlEmployeeCity.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@EmployeeAddress", txtEmployeeAddress.Text.Trim());
+                cmd.Parameters.AddWithValue("@EmployeeCTC", txtEmployeeCTC.Text.Trim());
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+
+
+                txtCompanyRagistrationNum.Text = "";
+                txtEmpID.Text = "";
+                ddlEmployeeShift.SelectedValue = "0";
+                ddlEmployeeDepartment.SelectedValue = "0";
+                ddlEmployeePosition.SelectedValue = "0";
+                txtEmployeeDOJ.Text = "";
+                txtEmpName.Text = "";
+                txtEmployeeContectNum.Text = "";
+                txtEmployeeContectEmail.Text = "";
+                ddlEmployeeGender.SelectedValue = "0";
+                ddlEmployeeState.SelectedValue = "0";
+                ddlEmployeeCity.SelectedValue = "0";
+                txtEmployeeAddress.Text = "";
+                txtEmployeeCTC.Text = "";
+
+            }
+            else if (btnSaveEmployeeRegistration.Text == "Update")
+            {
+
+            }
+        }
+
+
+        catch (Exception ex)
+        {
+
+            Response.Write("Error: " + ex.Message);
+        }
+
+    }
 
 }

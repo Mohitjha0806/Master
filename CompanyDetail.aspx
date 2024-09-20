@@ -206,7 +206,7 @@
                                 <div class="row mt-2">
                                     <div class="col-md-12">
                                         <div class="form-floating">
-                                            <asp:TextBox runat="server" class="form-control fw-semibold py-3 mt-1" MaxLength="250" TextMode="MultiLine" Style="font-size: 0.8rem; border-color: #717FF5;" Rows="2" ID="txtCompanyAddress" placeholder="Enter Company Address" />
+                                            <asp:TextBox runat="server" class="form-control fw-semibold py-3 mt-2" MaxLength="250" TextMode="MultiLine" Style="font-size: 0.8rem; border-color: #717FF5;" Rows="2" ID="txtCompanyAddress" placeholder="Enter Company Address" />
                                             <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Company Name" for="floatingInput">Enter Company Address</label>
                                             <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" ValidationGroup="SubmitGroup" Style="font-size: 0.8rem;" ControlToValidate="txtCompanyAddress" runat="server" Display="Dynamic" />
                                         </div>

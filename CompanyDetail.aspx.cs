@@ -210,27 +210,24 @@ public partial class CompanyDetail : System.Web.UI.Page
 
             TxtCompanyName.Text = glblCompanyName.Text;
             txtCompanyRagistrationNum.Text = glblCompanyRegistrationNumber.Text;
-            //ddlIndustry.Text = glblCompanyIndustry.Text;
-            ddlIndustry.ClearSelection();
-            ddlIndustry.ClearSelection(); // Clear any previous selections
-            ListItem newItem = new ListItem(glblCompanyIndustry.Text, "aa"); // Create a new list item with text and value
-            ddlIndustry.Items.Add(newItem); // Add the new item to the dropdown
+           
+            ddlIndustry.ClearSelection(); 
+            ListItem newItem = new ListItem(glblCompanyIndustry.Text, "aa"); 
+            ddlIndustry.Items.Add(newItem); 
             newItem.Selected = true;
 
             txtCompanyContectPersonName.Text = glblCompanyPersonName.Text;
             txtCompanyContectPersonNum.Text = glblCompanyPersonNumbar.Text;
             txtCompanyContectPersonEmail.Text = glblCompanyPersonEmail.Text;
-            //ddlCompanyState.Text = glblCompanyState.Text;
-            //ddlCompanyCity.Text = glblCompanyCity.Text;
-
-            ddlCompanyState.ClearSelection(); // Clear any previous selections
-            ListItem newItem2 = new ListItem(glblCompanyState.Text, "aa"); // Create a new list item with text and value
-            ddlCompanyState.Items.Add(newItem2); // Add the new item to the dropdown
+           
+            ddlCompanyState.ClearSelection();
+            ListItem newItem2 = new ListItem(glblCompanyState.Text, "aa"); 
+            ddlCompanyState.Items.Add(newItem2);
             newItem2.Selected = true;
 
-            ddlCompanyCity.ClearSelection(); // Clear any previous selections
-            ListItem newItem3 = new ListItem(glblCompanyCity.Text, "aa"); // Create a new list item with text and value
-            ddlCompanyCity.Items.Add(newItem3); // Add the new item to the dropdown
+            ddlCompanyCity.ClearSelection(); 
+            ListItem newItem3 = new ListItem(glblCompanyCity.Text, "aa"); 
+            ddlCompanyCity.Items.Add(newItem3); 
             newItem3.Selected = true;
 
 

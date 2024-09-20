@@ -165,7 +165,7 @@
                                 <div class="row mt-3">
                                     <div class="col-md-4">
                                         <div class="form-floating">
-                                            <asp:TextBox runat="server" TextMode="SingleLine" class="form-control fw-semibold" Style="border-color: #717FF5;" ID="TxtEmpName" placeholder="Enter Company Name" />
+                                            <asp:TextBox runat="server" TextMode="SingleLine" class="form-control fw-semibold" Style="border-color: #717FF5;" ID="txtEmpName" placeholder="Enter Company Name" />
                                             <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Company Name" for="TxtCompanyName">Employee Full Name</label>
                                         </div>
                                         <asp:RequiredFieldValidator ValidationGroup="SubmitGroup" ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;"
@@ -258,9 +258,9 @@
                                     </div>
                                 </div>
                                 <div class="row-md-3 mt-3">
-                                    <asp:Button runat="server" class="btn btn-success fw-semibold py-2 px-5" Text="Save" ValidationGroup="SubmitGroup"/>
+                                    <asp:Button runat="server" ID="btnSaveEmployeeRegistration" class="btn btn-success fw-semibold py-2 px-5" Text="Save" ValidationGroup="SubmitGroup" OnClick="btnSaveEmployeeRegistration_Click" AutoPostBacck="true"/>
                                     <asp:Button runat="server" class="btn btn-outline-danger fw-semibold  py-2 px-4 ml-3" Text="Reset" />
-                                   
+                                  
                                 </div>
 
                             </from>
