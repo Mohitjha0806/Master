@@ -252,7 +252,14 @@ public partial class CompanyDetail : System.Web.UI.Page
                     {
                         cmd.Parameters.AddWithValue("@ID", id);
                         con.Open();
+                        try
+                        {
                         cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception)
+                        {
+                            lblDeleteDeniedMsg.Visible = true;
+                        }
                     }
                 }
                 this.BindGridCompany();
