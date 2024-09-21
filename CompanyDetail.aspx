@@ -155,11 +155,11 @@
                                             <asp:TextBox runat="server" TextMode="SingleLine" Style="font-size: 0.8rem; border-color: #717FF5;" class="form-control fw-semibold"
                                                 ID="txtCompanyContectPersonEmail" placeholder="Contact Person Email" />
                                             <label runat="server" text="Contact Email" class="fw-semibold" style="font-size: 0.8rem;" for="floatingInput">Contact Person Email</label>
-                                            <asp:RequiredFieldValidator ErrorMessage="Required" ValidationGroup="SubmitGroup" ForeColor="Red" Style="font-size: 0.8rem;"
-                                                ControlToValidate="txtCompanyContectPersonEmail" runat="server" Display="Dynamic" />
-                                            <asp:RegularExpressionValidator ErrorMessage="Enter valid Email" ForeColor="Red" Style="font-size: 0.8rem;"
-                                                ControlToValidate="txtCompanyContectPersonEmail" ValidationExpression="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" runat="server" Display="Dynamic" />
                                         </div>
+                                        <asp:RequiredFieldValidator ErrorMessage="Required" ValidationGroup="SubmitGroup" ForeColor="Red" Style="font-size: 0.8rem;"
+                                            ControlToValidate="txtCompanyContectPersonEmail" runat="server" Display="Dynamic" />
+                                        <asp:RegularExpressionValidator ErrorMessage="Enter valid Email" ForeColor="Red" Style="font-size: 0.8rem;"
+                                            ControlToValidate="txtCompanyContectPersonEmail" ValidationExpression="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" runat="server" Display="Dynamic" />
                                     </div>
                                 </div>
                                 <div class="row mt-3">
@@ -203,21 +203,24 @@
                                     </div>
 
                                 </div>
-                                <div class="row mt-2">
+                                <div class="row mt-3">
                                     <div class="col-md-12">
+
                                         <div class="form-floating">
-                                            <asp:TextBox runat="server" class="form-control fw-semibold py-3 mt-2" MaxLength="250" TextMode="MultiLine" Style="font-size: 0.8rem; border-color: #717FF5;" Rows="2" ID="txtCompanyAddress" placeholder="Enter Company Address" />
+                                            <asp:TextBox runat="server" class="form-control fw-semibold" MaxLength="250" TextMode="SingleLine" row="2" Style="font-size: 0.8rem; border-color: #717FF5;"
+                                                Rows="2" ID="txtCompanyAddress" placeholder="Enter Company Address" />
                                             <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Company Name" for="floatingInput">Enter Company Address</label>
-                                            <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" ValidationGroup="SubmitGroup" Style="font-size: 0.8rem;" ControlToValidate="txtCompanyAddress" runat="server" Display="Dynamic" />
+                                            <asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" ValidationGroup="SubmitGroup" Style="font-size: 0.8rem;" ControlToValidate="txtCompanyAddress"
+                                                runat="server" Display="Dynamic" />
+                                            <asp:RegularExpressionValidator ValidationGroup="SubmitGroup" ErrorMessage="Enter valid Address" ForeColor="Red" Style="font-size: 0.8rem;"
+                                                ControlToValidate="txtCompanyAddress" ValidationExpression="^[a-zA-Z0-9\s,.-]{10,300}$" runat="server" Display="Dynamic" />
                                         </div>
-
-
                                     </div>
                                 </div>
                                 <div class="row py-3">
                                     <div class="col-md-3 d-flex align-items-center">
                                         <asp:Button runat="server" class="btn btn-success fw-semibold px-4" ValidationGroup="SubmitGroup" ID="btnRegistrainSubmit" Text="Submit" OnClick="btnRegistrainSubmit_Click" IsPostBack="true" />
-                                        <asp:Button runat="server" class="btn btn-outline-danger fw-semibold" style="margin-left:0.5rem;" Text="Reset" />
+                                        <asp:Button runat="server" class="btn btn-outline-danger fw-semibold" Style="margin-left: 0.5rem;" Text="Reset" />
                                     </div>
                                     <div class="col-md-9 d-flex align-items-center py-3">
                                         <div runat="server" class="container alert alert-danger alert-dismissible fade show py-2 z-3" role="alert" id="lblErrorMsg" visible="false">
@@ -249,21 +252,21 @@
                             <form2 class="form-control table-responsive-md table-responsive">
                                 <asp:GridView runat="server" ID="GridView1" AutoGenerateColumns="false" CssClass="table table-bordered table-hover w-100 bg-transparent" DataKeyNames="ID" OnRowCommand="GridView1_RowCommand">
                                     <Columns>
-                                        <asp:TemplateField HeaderStyle-CssClass="d-none" Visible="false" HeaderText="ID">
+                                        <asp:TemplateField Visible="false" HeaderText="ID">
                                             <ItemTemplate>
-                                                <asp:Label Text='<%#Eval("ID") %>' runat="server" ID="glblID" />
+                                                <asp:Label CssClass="d-flex justify-content-center align-items-center px-2 text-nowrap" Text='<%#Eval("ID") %>' runat="server" ID="glblID" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
 
                                         <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Company Name">
                                             <ItemTemplate>
-                                                <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("CompanyName")%>' runat="server" ID="glblCompanyName" />
+                                                <asp:Label CssClass="d-flex justify-content-center align-items-center px-2 text-nowrap" Text='<%#Eval("CompanyName")%>' runat="server" ID="glblCompanyName" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderStyle-CssClass="d-none" Visible="false" HeaderText="Company Registration Number">
+                                        <asp:TemplateField Visible="true" HeaderStyle-CssClass="text-center text-nowrap" HeaderText="CRN">
                                             <ItemTemplate>
-                                                <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("CompanyRegistrationNumber")%>' runat="server" ID="glblCompanyRegistrationNumber" />
+                                                <asp:Label CssClass="d-flex justify-content-center align-items-center px-2 text-nowrap" Text='<%#Eval("CompanyRegistrationNumber")%>' runat="server" ID="glblCompanyRegistrationNumber" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
 
@@ -273,19 +276,19 @@
                                             </ItemTemplate>
                                         </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderStyle-CssClass="d-none" Visible="false" HeaderText="Company Person Name">
+                                        <asp:TemplateField Visible="false" HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Company Person Name">
                                             <ItemTemplate>
                                                 <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("CompanyPersonName")%>' runat="server" ID="glblCompanyPersonName" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderStyle-CssClass="d-none" Visible="false" HeaderText="Company Person Number">
+                                        <asp:TemplateField Visible="false" HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Company Person Number">
                                             <ItemTemplate>
                                                 <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("CompanyPersonNumber")%>' runat="server" ID="glblCompanyPersonNumbar" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderStyle-CssClass="d-none" Visible="false" HeaderText="Company Person Email">
+                                        <asp:TemplateField Visible="false" HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Company Person Email">
                                             <ItemTemplate>
                                                 <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("CompanyPersonEmailID")%>' runat="server" ID="glblCompanyPersonEmail" />
                                             </ItemTemplate>
@@ -303,7 +306,7 @@
                                             </ItemTemplate>
                                         </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderStyle-CssClass="d-none" Visible="false" HeaderText="Company Address">
+                                        <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" Visible="false" HeaderText="Company Address">
                                             <ItemTemplate>
                                                 <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("CompanyAddress")%>' runat="server" ID="glblCompanyAdderss" />
                                             </ItemTemplate>

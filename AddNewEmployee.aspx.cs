@@ -10,6 +10,7 @@ public partial class AddNewEmployee : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
         if (!IsPostBack)
         {
             BindDepartment();
@@ -143,8 +144,28 @@ public partial class AddNewEmployee : System.Web.UI.Page
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 sda.Fill(ds);
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    DataRow row = ds.Tables[0].Rows[0];
+                    string msg = row["Msg"].ToString();
+                    string errorMsg = row["ErrorMsg"].ToString();
+
+                    if (msg == "OK")
+                    {
+                        lblAlertMsgSuccess.Visible = true;
+                        lblErrorMsg1.Text = errorMsg;
+                        lblAlertMsgError.Visible = false;
+                    }
+                    else if (msg == "ERROR")
+                    {
+                        lblAlertMsgError.Visible = true;
+                        lblErrorMsg2.Text = errorMsg;
+                        lblAlertMsgSuccess.Visible = false;
+                    }
 
 
+
+                }
                 txtCompanyRagistrationNum.Text = "";
                 txtEmpID.Text = "";
                 ddlEmployeeShift.SelectedValue = "0";
@@ -159,18 +180,13 @@ public partial class AddNewEmployee : System.Web.UI.Page
                 ddlEmployeeCity.SelectedValue = "0";
                 txtEmployeeAddress.Text = "";
                 txtEmployeeCTC.Text = "";
-
             }
-            else if (btnSaveEmployeeRegistration.Text == "Update")
-            {
 
-            }
         }
 
 
         catch (Exception ex)
         {
-
             Response.Write("Error: " + ex.Message);
         }
 

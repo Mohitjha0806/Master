@@ -242,7 +242,7 @@ public partial class CompanyDetail : System.Web.UI.Page
             if (int.TryParse(commandArgument, out id))
 
             {
-                string query = "DELETE FROM tblCompanyRegistration WHERE ID = @ID";
+                string query = "DELETE FROM tblCompanyRegistration1 WHERE ID = @ID";
                 string constr = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
 
 
