@@ -77,8 +77,7 @@
             margin-top: 1.5rem;
         }
     </style>
-    <main id="main" class="main">
-        <div class="container-fluid">
+   <div class="container-fluid">
             <div class="card">
 
                 <%--Register Your Company--%>
@@ -332,7 +331,6 @@
 
             </div>
         </div>
-    </main>
 
 </asp:Content>
 

@@ -188,7 +188,9 @@
             </nav>
 
         </header>
+        <!-- ======= End Header ======= -->
 
+        <!--Sidebar-->
         <aside id="sidebar" class="sidebar">
 
             <ul class="sidebar-nav" id="sidebar-nav">
@@ -287,10 +289,13 @@
         </aside>
         <!-- End Sidebar-->
 
-        <main>
+        <!--Main-->
+        <main id="main" class="main">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </main>
+        <!--End Main-->
+        <!--Footer-->
         <footer id="footer" class="footer">
             <div class="copyright">
                 &copy; Copyright <strong><span>Mohit Jha</span></strong>. All Rights Reserved
@@ -299,9 +304,10 @@
                 Designed by <a href="https://www.linkedin.com/in/mohit-jha-7b0a99183/">Mohit Jha</a>
             </div>
         </footer>
+        <!-- End Footer-->
 
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     </form>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
