@@ -80,7 +80,7 @@
     <div class="container-fluid">
         <div class="card">
 
-            <%--Register Your Company--%>
+            <%--Register Your Company---%>
             <div class="card-header">
                 <div runat="server" class="container alert alert-danger alert-dismissible fade show py-2" role="alert" id="lblErrorMsg" visible="false">
                     <strong>Holy User!</strong>&nbsp; &nbsp; &nbsp; Please enter a unique company registration number.
