@@ -143,6 +143,7 @@ public partial class CompanyDetail : System.Web.UI.Page
             ddlCompanyCity.SelectedValue = "0";
             txtCompanyAddress.Text = "";
         }
+
         else if (btnRegistrainSubmit.Text == "Update")
         {
 
@@ -160,15 +161,32 @@ public partial class CompanyDetail : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@CompanyPersonNumber", txtCompanyContectPersonNum.Text.Trim());
             cmd.Parameters.AddWithValue("@CompanyPersonEmail", txtCompanyContectPersonEmail.Text.Trim());
             cmd.Parameters.AddWithValue("@CompanyStateName", ddlCompanyState.SelectedItem.Text);
+
             cmd.Parameters.AddWithValue("@CompanyStateCity", ddlCompanyCity.SelectedItem.Text);
+
             cmd.Parameters.AddWithValue("@CompanyAddress", txtCompanyAddress.Text.Trim());
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
 
 
-            sda.Fill(ds);
-            GridView1.DataBind();
-            conn.Close();
+            try
+            {
+                sda.Fill(ds);
+                GridView1.DataBind();
+                conn.Close();
+                lblErrorMsg.Visible = false;
+                lblSuccessMsg.Visible = true;
+                lblUpdateSuccessMsg.Visible = false;
+                lblDeleteDeniedMsg.Visible = false;
+            }
+            catch (Exception)
+
+            {
+                lblErrorMsg.Visible = false;
+                lblSuccessMsg.Visible = false;
+                lblUpdateSuccessMsg.Visible = true;
+                lblDeleteDeniedMsg.Visible = false;
+            }
 
             TxtCompanyName.Text = "";
             txtCompanyRagistrationNum.Text = "";
@@ -179,12 +197,15 @@ public partial class CompanyDetail : System.Web.UI.Page
             ddlCompanyState.SelectedValue = "0";
             ddlCompanyCity.SelectedValue = "0";
             txtCompanyAddress.Text = "";
-
             btnRegistrainSubmit.Text = "Submit";
+
             BindGridCompany();
 
         }
+
     }
+
+
 
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
@@ -194,6 +215,11 @@ public partial class CompanyDetail : System.Web.UI.Page
         GridViewRow row = (GridViewRow)((Control)e.CommandSource).NamingContainer;
         if (e.CommandName == "UpdateRecord")
         {
+
+            lblErrorMsg.Visible = false;
+            lblSuccessMsg.Visible = false;
+            lblDeleteDeniedMsg.Visible = false;
+
 
             Label glblID = (Label)row.FindControl("glblID");
             ViewState["glblID"] = glblID.Text;
@@ -210,30 +236,38 @@ public partial class CompanyDetail : System.Web.UI.Page
 
             TxtCompanyName.Text = glblCompanyName.Text;
             txtCompanyRagistrationNum.Text = glblCompanyRegistrationNumber.Text;
-           
-            ddlIndustry.ClearSelection(); 
-            ListItem newItem = new ListItem(glblCompanyIndustry.Text, "aa"); 
-            ddlIndustry.Items.Add(newItem); 
+
+            ddlIndustry.ClearSelection();
+            ListItem newItem = new ListItem(glblCompanyIndustry.Text, "aa");
+            ddlIndustry.Items.Add(newItem);
             newItem.Selected = true;
 
             txtCompanyContectPersonName.Text = glblCompanyPersonName.Text;
             txtCompanyContectPersonNum.Text = glblCompanyPersonNumbar.Text;
             txtCompanyContectPersonEmail.Text = glblCompanyPersonEmail.Text;
-           
+
             ddlCompanyState.ClearSelection();
-            ListItem newItem2 = new ListItem(glblCompanyState.Text, "aa"); 
+            ListItem newItem2 = new ListItem(glblCompanyState.Text, "aa");
             ddlCompanyState.Items.Add(newItem2);
             newItem2.Selected = true;
 
-            ddlCompanyCity.ClearSelection(); 
-            ListItem newItem3 = new ListItem(glblCompanyCity.Text, "aa"); 
-            ddlCompanyCity.Items.Add(newItem3); 
+            ddlCompanyCity.ClearSelection();
+            ListItem newItem3 = new ListItem(glblCompanyCity.Text, "aa");
+            ddlCompanyCity.Items.Add(newItem3);
             newItem3.Selected = true;
 
 
             txtCompanyAddress.Text = glblCompanyAdderss.Text;
+            try
+            {
+                btnRegistrainSubmit.Text = "Update";
 
-            btnRegistrainSubmit.Text = "Update";
+            }
+            catch (Exception)
+            {
+                lblUpdateSuccessMsg.Visible = true;
+                throw;
+            }
         }
         else if (e.CommandName == "DeleteRecord")
         {
@@ -254,10 +288,13 @@ public partial class CompanyDetail : System.Web.UI.Page
                         con.Open();
                         try
                         {
-                        cmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
                         }
                         catch (Exception)
                         {
+                            lblErrorMsg.Visible = false;
+                            lblSuccessMsg.Visible = false;
+                            lblUpdateSuccessMsg.Visible = false;
                             lblDeleteDeniedMsg.Visible = true;
                         }
                     }

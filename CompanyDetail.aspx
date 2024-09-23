@@ -82,18 +82,23 @@
 
             <%--Register Your Company--%>
             <div class="card-header">
-                <div runat="server" class="container alert alert-danger alert-dismissible fade show py-2 z-3" role="alert" id="lblErrorMsg" visible="false">
+                <div runat="server" class="container alert alert-danger alert-dismissible fade show py-2" role="alert" id="lblErrorMsg" visible="false">
                     <strong>Holy User!</strong>&nbsp; &nbsp; &nbsp; Please enter a unique company registration number.
-                    <button type="button" class="btn-close py-3 " data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-close py-2  mt-1" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-                <div runat="server" class="container alert alert-success alert-dismissible fade show" role="alert" id="lblSuccessMsg" visible="false">
+                <div runat="server" class="container alert alert-success alert-dismissible fade show py-2" role="alert" id="lblSuccessMsg" visible="false">
                     <strong>Holy User!</strong>&nbsp; &nbsp; &nbsp;Data Save Successfully.
-                    <button type="button" class="btn-close py-3 " data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-close py-2  mt-1" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-                <div runat="server" class="container alert alert-success alert-dismissible fade show" role="alert" id="lblDeleteDeniedMsg" visible="false">
-                    <strong>Holy User!</strong>&nbsp; &nbsp; &nbsp;Delete nhi ho raha Qukey Usme employee data haia.
-                 <button type="button" class="btn-close py-3 " data-bs-dismiss="alert" aria-label="Close"></button>
+                <div runat="server" class="container alert alert-warning alert-dismissible fade show py-2" role="alert" id="lblDeleteDeniedMsg" visible="false">
+                    <strong>Sorry User!</strong>&nbsp; &nbsp; &nbsp;You cannot delete or Update this company because it has employees added..
+                 <button type="button" class="btn-close py-2  mt-1" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
+                <div runat="server" class="container alert alert-warning alert-dismissible fade show py-2" role="alert" id="lblUpdateSuccessMsg" visible="false">
+                    <strong>Sorry User!</strong>&nbsp; &nbsp; &nbsp;You cannot delete or Update this company because it has employees added..
+                    <button type="button" class="btn-close py-2 mt-1" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
             </div>
             <div class="card-header">
                 <h1 class="fw-semibold">Register Your Company</h1>
@@ -131,7 +136,8 @@
                                         ControlToValidate="txtCompanyRagistrationNum" ValidationExpression="^[0-9]{4}$" runat="server" Display="Dynamic" />
                                 </div>
                                 <div class="col-md-4 mt-md-3">
-                                    <asp:DropDownList CssClass="form-control form-select fw-semibold py-3" ID="ddlIndustry" Style="font-size: 0.8rem; border-color: #717FF5;" runat="server" AutoPostBack="true">
+                                    <asp:DropDownList CssClass="form-control form-select fw-semibold py-3" ID="ddlIndustry" Style="font-size: 0.8rem; border-color: #717FF5;" runat="server"
+                                        AutoPostBack="false">
                                         <asp:ListItem Text="Select Industry" Value="0" />
 
                                     </asp:DropDownList>
@@ -183,7 +189,8 @@
                                 </div>
                                 <div class="col-md-4">
                                     <asp:DropDownList CssClass="form-control form-select fw-semibold py-3 mt-1" Style="font-size: 0.8rem; border-color: #717FF5;" ID="ddlCompanyState" runat="server"
-                                        OnSelectedIndexChanged="ddlCompanyState_SelectedIndexChanged" AutoPostBack="true">
+                                        OnSelectedIndexChanged="ddlCompanyState_SelectedIndexChanged"
+                                        AutoPostBack="true">
                                         <asp:ListItem Text="Select State" Value="0" />
                                     </asp:DropDownList>
 
@@ -200,7 +207,9 @@
                                     <asp:DropDownList CssClass="form-control form-select fw-semibold py-3 mt-1"
                                         ID="ddlCompanyCity"
                                         Style="font-size: 0.8rem; border-color: #717FF5;"
-                                        runat="server">
+                                        runat="server"
+                                        AutoPostBack="false">
+
                                         <asp:ListItem Text="Select City" Value="0" />
 
                                     </asp:DropDownList>
