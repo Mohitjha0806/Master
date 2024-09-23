@@ -102,13 +102,13 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-floating ">
-                                    <asp:TextBox runat="server" TextMode="SingleLine" MaxLength="8" class="form-control fw-semibold" ID="txtEmpID" Style="border-color: #717FF5;" placeholder="Registration Number" />
+                                    <asp:TextBox runat="server" TextMode="SingleLine" MaxLength="3" class="form-control fw-semibold" ID="txtEmpID" Style="border-color: #717FF5;" placeholder="Registration Number" />
                                     <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Company Employee ID" for="floatingInput">Employee ID</label>
                                 </div>
                                 <asp:RequiredFieldValidator ValidationGroup="SubmitGroup" ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;"
                                     ControlToValidate="txtEmpID" runat="server" Display="Dynamic" />
                                 <asp:RegularExpressionValidator ValidationGroup="SubmitGroup" ErrorMessage="Enter valid Employee ID" ForeColor="Red" Style="font-size: 0.8rem;"
-                                    ControlToValidate="txtEmpID" ValidationExpression="^[0-9]+$" runat="server" Display="Dynamic" />
+                                    ControlToValidate="txtEmpID" ValidationExpression="^(?:[0-9]{1,2}|[12][0-9]{2}|300)$" runat="server" Display="Dynamic" />
                             </div>
                             <div class="col-md-4">
                                 <%--<label runat="server" class="fw-semibold" style="font-size: 0.8rem;" for="lblEmployeeShift">Working Shift</label>--%>

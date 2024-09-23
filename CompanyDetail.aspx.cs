@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 public partial class CompanyDetail : System.Web.UI.Page
 {
@@ -101,6 +102,8 @@ public partial class CompanyDetail : System.Web.UI.Page
 
         if (btnRegistrainSubmit.Text == "Submit")
         {
+
+
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connection"].ConnectionString);
             cmd = new SqlCommand("Usp_insertCompanyRegistration", conn);
             cmd.CommandType = CommandType.StoredProcedure;

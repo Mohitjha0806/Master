@@ -71,6 +71,7 @@ public partial class AddNewEmployee : System.Web.UI.Page
     {
         using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connection"].ConnectionString))
         {
+
             SqlCommand cmd = new SqlCommand("uspGetState", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             conn.Open();
@@ -162,8 +163,6 @@ public partial class AddNewEmployee : System.Web.UI.Page
                         lblErrorMsg2.Text = errorMsg;
                         lblAlertMsgSuccess.Visible = false;
                     }
-
-
 
                 }
                 txtCompanyRagistrationNum.Text = "";
