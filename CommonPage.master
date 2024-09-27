@@ -290,7 +290,7 @@
         <!-- End Sidebar-->
 
         <!--Main-->
-        <main id="main" class="main">
+        <main id="main" class="main  p-0">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </main>
