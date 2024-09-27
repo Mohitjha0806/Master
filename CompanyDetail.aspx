@@ -77,7 +77,7 @@
             margin-top: 1.5rem;
         }
     </style>
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
         <div class="card">
 
             <%--Register Your Company---%>

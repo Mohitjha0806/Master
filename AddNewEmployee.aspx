@@ -76,7 +76,7 @@
             margin-top: 1.5rem;
         }
     </style>
-    <div class="container-fluid ">
+    <div class="container-fluid p-0">
         <div class="card">
             <div class="card-header">
                 <h1 class="fw-semibold">Register Employees</h1>
