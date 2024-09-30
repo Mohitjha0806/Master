@@ -2,32 +2,61 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style>
-          fieldset {
-      border: 1px solid #007bff;
-      border-radius: 0.5rem;
-      padding: 0.5rem 2rem;
-      width: auto;
-      border-color: #007bff;
-      background-color: #f8f9fa;
-  }
+        fieldset {
+            border: 1px solid #007bff;
+            border-radius: 0.5rem;
+            padding: 0.5rem 2rem;
+            width: auto;
+            border-color: #007bff;
+            background-color: #f8f9fa;
+        }
 
-  legend {
-      border-color: #007bff;
-      border-radius: 0.5rem;
-      padding: 0.3rem 0.5rem;
-      border: 1px solid #007bff;
-      color: #007bff;
-      width: auto;
-      margin-top: -2%;
-      float: initial;
-      font-size: 0.8rem;
-      font-weight: 600;
-      background-color: white;
-  }
+        legend {
+            border-color: #007bff;
+            border-radius: 0.5rem;
+            padding: 0.3rem 0.5rem;
+            border: 1px solid #007bff;
+            color: #007bff;
+            width: auto;
+            margin-top: -2%;
+            float: initial;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background-color: white;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="card">
+        <div runat="server" class="card-header">
+            <hr class="w-auto py-2" />
+            <h1 class="fw-semibold fs-3">Find Employee By CRN</h1>
+        </div>
+        <div class="card-body">
+            <div class="row-md-2 mt-3">
+                <div class="col-md-4">
+                    <div class="mb-3">
+
+                        <div class="form-floating">
+                            <asp:TextBox runat="server" TextMode="SingleLine" MaxLength="4" class="form-control fw-semibold" ID="txtCompanyRegistrationNumber"
+                                Style="border-color: #717FF5;" placeholder="Registration Number" />
+                            <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Company Registration Number" for="floatingInput">Enter Company Registration Number</label>
+                        </div>
+
+                       
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <asp:GridView ID="gvEmployee" runat="server" AutoGenerateColumns="True" CssClass="table table-bordered table-striped">
+                </asp:GridView>
+            </div>
+        </div>
         <div runat="server" class="card-header">
             <hr class="w-auto py-2" />
             <h1 class="fw-semibold fs-3">Employee Details</h1>

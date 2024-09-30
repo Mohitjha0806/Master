@@ -3,16 +3,40 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class ShowEmployeeDetails : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         BindEmployee();
+
+    }
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        int companyRegistrationNumber;
+        // Try to parse the input from TextBox to int
+        if (int.TryParse(txtCompanyRegistrationNumber.Text.Trim(), out companyRegistrationNumber))
+        {
+            BindGrid(companyRegistrationNumber); // Call method with int parameter
+        }
+        else
+        {
+        }
+
+    }
+
+    private void BindGrid(int companyRegistrationNumber)
+    {
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connection"].ConnectionString);
+        SqlCommand cmd = new SqlCommand("usp_GetCompanyRegistrationNumbertblEmployee", conn);
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.Parameters.AddWithValue("@CompanyRegistrationNumber", companyRegistrationNumber);
+        conn.Open();
+        SqlDataAdapter sda = new SqlDataAdapter(cmd);
+        DataTable dt = new DataTable();
+        sda.Fill(dt);
+        gvEmployee.DataSource = dt;
+        gvEmployee.DataBind();
     }
 
     protected void BindEmployee()
