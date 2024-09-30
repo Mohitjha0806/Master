@@ -20,7 +20,7 @@
             padding: 0.3rem 0.5rem;
             border: 1px solid #007bff;
             color: #007bff;
-            width: auto;
+            width: auto;    
             margin-top: -2%;
             float: initial;
             font-size: 0.8rem;
@@ -79,7 +79,7 @@
     <div class="container-fluid p-0">
         <div class="card">
             <div class="card-header">
-                <h1 class="fw-semibold">Register Employees</h1>
+                <h1 class="fw-semibold fs-3">Add New Employees</h1>
             </div>
             <div class="card-body py-3">
 

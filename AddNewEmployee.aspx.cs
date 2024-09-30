@@ -180,6 +180,10 @@ public partial class AddNewEmployee : System.Web.UI.Page
                 txtEmployeeAddress.Text = "";
                 txtEmployeeCTC.Text = "";
             }
+            else
+            {
+
+            }
 
         }
 
