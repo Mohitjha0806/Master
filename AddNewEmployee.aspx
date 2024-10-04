@@ -92,9 +92,9 @@
                         <div class="row mt-3">
                             <div class="col-md-4">
                                 <div class="form-floating">
-                                    <asp:TextBox runat="server" TextMode="Date" MaxLength="4" class="form-control fw-semibold" ID="txtComplaintDate"
+                                    <asp:TextBox runat="server" TextMode="SingleLine" MaxLength="4" class="form-control fw-semibold" ID="txtCompanyRagistrationNum"
                                         Style="border-color: #717FF5;" placeholder="Registration Number" />
-                                    <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Complaint Date" for="floatingInput">ComplaintDate</label>
+                                    <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Complaint Date" for="floatingInput">Company Ragistration Number</label>
                                 </div>
                                 <asp:RequiredFieldValidator ErrorMessage="Required" ValidationGroup="SubmitGroup" ForeColor="Red" Style="font-size: 0.8rem;"
                                     ControlToValidate="txtCompanyRagistrationNum" runat="server" Display="Dynamic" />
