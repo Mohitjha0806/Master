@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CommonPage.master" AutoEventWireup="true" CodeFile="AddNewEmployee.aspx.cs" Inherits="AddNewEmployee" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CommonPage.master" AutoEventWireup="true" CodeFile="AddNewEmployee.aspx.cs" 
+    Inherits="AddNewEmployee" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -91,9 +92,9 @@
                         <div class="row mt-3">
                             <div class="col-md-4">
                                 <div class="form-floating">
-                                    <asp:TextBox runat="server" TextMode="SingleLine" MaxLength="4" class="form-control fw-semibold" ID="txtCompanyRagistrationNum"
+                                    <asp:TextBox runat="server" TextMode="Date" MaxLength="4" class="form-control fw-semibold" ID="txtComplaintDate"
                                         Style="border-color: #717FF5;" placeholder="Registration Number" />
-                                    <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Company Registration Number" for="floatingInput">Company Registration Number</label>
+                                    <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Complaint Date" for="floatingInput">ComplaintDate</label>
                                 </div>
                                 <asp:RequiredFieldValidator ErrorMessage="Required" ValidationGroup="SubmitGroup" ForeColor="Red" Style="font-size: 0.8rem;"
                                     ControlToValidate="txtCompanyRagistrationNum" runat="server" Display="Dynamic" />
@@ -112,18 +113,15 @@
                             </div>
                             <div class="col-md-4">
                                 <%--<label runat="server" class="fw-semibold" style="font-size: 0.8rem;" for="lblEmployeeShift">Working Shift</label>--%>
-                                <asp:DropDownList CssClass="form-control form-select fw-semibold py-3 mt-1" ID="ddlEmployeeShift" Style="font-size: 0.8rem; border-color: #717FF5;" runat="server">
+                                <asp:DropDownList CssClass="form-control form-select fw-semibold py-3 mt-1" ID="ddlEmployeeShift" Style="font-size: 0.8rem; 
+                                        border-color: #717FF5;" runat="server">
                                     <asp:ListItem Text="Select Shift" Value="0" />
                                     <asp:ListItem Text="Day" Value="1" />
                                     <asp:ListItem Text="Night" Value="2" />
                                 </asp:DropDownList>
-                                <asp:RequiredFieldValidator ValidationGroup="SubmitGroup" ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;" ControlToValidate="ddlEmployeeShift" InitialValue="0" runat="server" Display="Dynamic" />
+                                <asp:RequiredFieldValidator ValidationGroup="SubmitGroup" ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;" 
+                                    ControlToValidate="ddlEmployeeShift" InitialValue="0" runat="server" Display="Dynamic" />
                             </div>
-
-
-
-
-
 
                         </div>
                         <div class="row mt-2 ">
