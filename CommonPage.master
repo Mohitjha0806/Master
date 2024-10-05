@@ -224,19 +224,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="Dashboard.aspx">
                         <i class="bi bi-grid"></i>
-                        <span style="font-size: 0.9rem;">Dashboard</span>
+                        <span style="font-size: 0.85rem;">Dashboard</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                        <i class="bi bi-menu-button-wide"></i><span style="font-size: 0.95rem;">Company Master</span><i class="bi bi-chevron-down ms-auto"></i>
+                        <i class="bi bi-menu-button-wide"></i><span style="font-size: 0.85rem;">Company Master</span><i class="bi bi-chevron-down ms-auto"></i>
                     </a>
                     <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 
                         <li>
                             <a href="CompanyDetail.aspx" target="_blank">
-                                <i class="bi bi-circle"></i><span style="font-size: 0.85rem;">Add Company</span>
+                                <i class="bi bi-circle"></i><span style="font-size: 0.8rem;">Add Company</span>
                             </a>
                         </li>
 
@@ -251,27 +251,32 @@
 
                 <li class="nav-item">
                     <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                        <i class="bi bi-layout-text-window-reverse"></i><span style="font-size: 0.95rem;">HRMS</span><i class="bi bi-chevron-down ms-auto"></i>
+                        <i class="bi bi-layout-text-window-reverse"></i><span style="font-size: 0.85rem;">HRMS</span><i class="bi bi-chevron-down ms-auto"></i>
                     </a>
                     <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                         <li>
                             <a href="AddNewEmployee.aspx" target="_blank">
-                                <i class="bi bi-circle"></i><span style="font-size: 0.85rem;">Add New Employee</span>
+                                <i class="bi bi-circle"></i><span style="font-size: 0.8rem;">Add New Employee</span>
                             </a>
                         </li>
                         <li>
                             <a href="ShowEmployeeDetails.aspx" target="_blank">
-                                <i class="bi bi-circle"></i><span style="font-size: 0.85rem;">Change Employee Details</span>
+                                <i class="bi bi-circle"></i><span style="font-size: 0.8rem;">Change Employee Details</span>
                             </a>
                         </li>
                         <li>
-                            <a href="tables-general.html" target="_blank">
-                                <i class="bi bi-circle"></i><span style="font-size: 0.85rem;">Attendance Management</span>
+                            <a href="#" target="_blank">
+                                <i class="bi bi-circle"></i><span style="font-size: 0.8rem;">Attendance Management</span>
                             </a>
                         </li>
                         <li>
-                            <a href="tables-data.html" target="_blank">
-                                <i class="bi bi-circle"></i><span style="font-size: 0.85rem;">All Employee</span>
+                            <a href="#" target="_blank">
+                                <i class="bi bi-circle"></i><span style="font-size: 0.8rem;">Total Employee</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="ComplaintDeskPage.aspx" target="_blank">
+                                <i class="bi bi-circle"></i><span style="font-size: 0.8rem;">Complaint Desk</span>
                             </a>
                         </li>
                     </ul>
@@ -285,7 +290,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-                        <i class="bi bi-person"></i><span style="font-size: 0.95rem;">Employe Master</span><i class="bi bi-chevron-down ms-auto"></i>
+                        <i class="bi bi-person"></i><span style="font-size: 0.85rem;">Employe Master</span><i class="bi bi-chevron-down ms-auto"></i>
                     </a>
                     <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                         <li>
