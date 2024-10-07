@@ -81,12 +81,12 @@
             <div class="card-header">
                 <h1 class="fw-semibold fs-3">Register Your Company</h1>
             </div>
-            <div class="card-body p-0">
-                <fieldset class="py-3 mt-3">
-                    <legend class="fw-semibold">Required Details
-                    </legend>
+            <fieldset class="py-3 mt-3">
+                <legend class="fw-semibold">Required Details
+                </legend>
+                <div class="card-body p-0">
                     <div class="row py-2">
-                        <form3 class="form-control table-responsive-md table-responsive">
+                        <form3 class="form-control border-0 table-responsive-md table-responsive">
                             <asp:GridView ID="GridViewComplaintDesk" CssClass="table table-bordered table-hover w-100 bg-transparent  text-nowrap" AutoGenerateColumns="false" runat="server">
                                 <Columns>
                                     <asp:TemplateField HeaderText="ID">
@@ -113,13 +113,13 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
-                                    <asp:TemplateField HeaderText="Your First Name">
+                                    <asp:TemplateField HeaderText="Complainant's First Name">
                                         <ItemTemplate>
                                             <asp:Label CssClass="d-flex justify-content-center align-items-center px-2 text-nowrap" Text='<%# Eval("YourFirstName") %>' runat="server" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
-                                    <asp:TemplateField HeaderText="Your Last Name">
+                                    <asp:TemplateField HeaderText="Complainant's Last Name">
                                         <ItemTemplate>
                                             <asp:Label CssClass="d-flex justify-content-center align-items-center px-2 text-nowrap" Text='<%# Eval("YourLastName") %>' runat="server" />
                                         </ItemTemplate>
@@ -146,8 +146,22 @@
                             </asp:GridView>
                         </form3>
                     </div>
-                </fieldset>
-            </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-md-4 mt-md-3">
+                            <div class="form-floating">
+                                <asp:TextBox runat="server" TextMode="SingleLine" class="form-control fw-semibold" Style="border-color: #717FF5;" ID="TxtComplainyID"
+                                    placeholder="Compliant ID" />
+                                <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Complaint ID" for="TxtComplainyID">Enter Complint ID</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2 mt-md-3 d-flex align-items-center justify-content-center">
+                            <asp:Button runat="server" ID="btnTrnsferComplitToL2" class="btn btn-success fw-semibold py-2 px-5" Text="Transfer" ValidationGroup="SubmitGroup" OnClick="btnTrnsferComplitToL2_Click"/>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
         </div>
     </div>
 </asp:Content>

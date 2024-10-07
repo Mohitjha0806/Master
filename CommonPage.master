@@ -265,12 +265,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="AttendenceManagementPage.aspx" target="_blank">
                                 <i class="bi bi-circle"></i><span style="font-size: 0.8rem;">Attendance Management</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="TotalEmployee.aspx" target="_blank">
                                 <i class="bi bi-circle"></i><span style="font-size: 0.8rem;">Total Employee</span>
                             </a>
                         </li>

@@ -132,14 +132,14 @@
                                 <div class="form-floating">
                                     <asp:TextBox runat="server" TextMode="SingleLine" class="form-control fw-semibold" ID="txtComplainerFirstName"
                                         Style="border-color: #717FF5;" placeholder="First Name" />
-                                    <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Complaint Date" for="floatingInput">Your First Name</label>
+                                    <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Complaint Date" for="floatingInput">Complainant's First Name</label>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <div class="form-floating">
                                     <asp:TextBox runat="server" TextMode="SingleLine" class="form-control fw-semibold" ID="txtComplainerLastName"
                                         Style="border-color: #717FF5;" placeholder="Last Name" />
-                                    <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Complaint Time" for="floatingInput">Your Last Name</label>
+                                    <label runat="server" class="fw-semibold" style="font-size: 0.8rem;" text="Complaint Time" for="floatingInput">Complainant's last Name</label>
                                 </div>
                             </div>
                         </div>
@@ -177,9 +177,9 @@
 
                             </div>
                         </div>
+
+                     
                     </fieldset>
-
-
                 </div>
             </div>
         </div>

@@ -23,7 +23,7 @@ public partial class Compalint : System.Web.UI.Page
         cmd.CommandType = System.Data.CommandType.StoredProcedure;
         cmd.Parameters.AddWithValue("@ComplaintDate", txtComplaintDate.Text.Trim());
         cmd.Parameters.AddWithValue("@ComplaintTime", txtComplaintTime.Text.Trim());
-        cmd.Parameters.AddWithValue("@ComplaintType", ddlComplaintType.SelectedItem);
+        cmd.Parameters.AddWithValue("@ComplaintType", ddlComplaintType.SelectedItem.Text);
         cmd.Parameters.AddWithValue("@ComplaintAgainstEmployeeID", txtComplaintAgainstID.Text.Trim());
         cmd.Parameters.AddWithValue("@YourFirstName", txtComplainerFirstName.Text.Trim());
         cmd.Parameters.AddWithValue("@YourLastName", txtComplainerLastName.Text.Trim());

@@ -14,10 +14,9 @@ public partial class ShowEmployeeDetails : System.Web.UI.Page
     protected void btnSearch_Click(object sender, EventArgs e)
     {
         int companyRegistrationNumber;
-        // Try to parse the input from TextBox to int
         if (int.TryParse(txtCompanyRegistrationNumber.Text.Trim(), out companyRegistrationNumber))
         {
-            BindGrid(companyRegistrationNumber); // Call method with int parameter
+            BindGrid(companyRegistrationNumber);
         }
         else
         {

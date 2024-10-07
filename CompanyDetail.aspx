@@ -243,8 +243,7 @@
                                             <asp:Button runat="server" class="btn btn-success fw-semibold px-4" ValidationGroup="SubmitGroup" ID="btnRegistrainSubmit" Text="Submit" OnClick="btnRegistrainSubmit_Click" IsPostBack="true" />
                                             <asp:Button runat="server" class="btn btn-outline-danger fw-semibold" Style="margin-left: 0.5rem;" Text="Reset" />
                                         </div>
-                                        <div class="col-md-9 d-flex align-items-center py-3">
-                                        </div>
+                                       
                                     </div>
 
                                 </form1>
@@ -252,6 +251,10 @@
                         </div>
                     </fieldset>
                 </div>
+                <div class="card-footer">
+
+                </div>
+
 
                 <%--Company Details--%>
 
