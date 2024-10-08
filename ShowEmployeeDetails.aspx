@@ -66,7 +66,7 @@
             <legend class="fw-semibold">Employees</legend>
             <div class="row py-2">
                 <form2 class="form-control table-responsive-md table-responsive">
-                    <asp:GridView runat="server" ID="GridEmployeeData" AutoGenerateColumns="false" CssClass="table table-bordered table-hover w-100 bg-transparent">
+                    <asp:GridView runat="server" ID="GridEmployeeData" AutoGenerateColumns="false" CssClass="table table-bordered table-hover w-100 bg-transparent" DataKeyNames="ID" OnRowCommand="GridEmployeeData_RowCommand">
                         <Columns>
                             <asp:TemplateField Visible="false" HeaderText="ID">
                                 <ItemTemplate>

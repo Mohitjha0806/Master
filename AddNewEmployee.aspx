@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CommonPage.master" AutoEventWireup="true" CodeFile="AddNewEmployee.aspx.cs" 
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CommonPage.master" AutoEventWireup="true" CodeFile="AddNewEmployee.aspx.cs"
     Inherits="AddNewEmployee" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
@@ -21,7 +21,7 @@
             padding: 0.3rem 0.5rem;
             border: 1px solid #007bff;
             color: #007bff;
-            width: auto;    
+            width: auto;
             margin-top: -2%;
             float: initial;
             font-size: 0.8rem;
@@ -112,14 +112,13 @@
                                     ControlToValidate="txtEmpID" ValidationExpression="^(?:[0-9]{1,2}|[12][0-9]{2}|300)$" runat="server" Display="Dynamic" />
                             </div>
                             <div class="col-md-4">
-                                <%--<label runat="server" class="fw-semibold" style="font-size: 0.8rem;" for="lblEmployeeShift">Working Shift</label>--%>
-                                <asp:DropDownList CssClass="form-control form-select fw-semibold py-3 mt-1" ID="ddlEmployeeShift" Style="font-size: 0.8rem; 
-                                        border-color: #717FF5;" runat="server">
+                                <asp:DropDownList CssClass="form-control form-select fw-semibold py-3 mt-1" ID="ddlEmployeeShift" Style="font-size: 0.8rem; border-color: #717FF5;"
+                                    runat="server">
                                     <asp:ListItem Text="Select Shift" Value="0" />
                                     <asp:ListItem Text="Day" Value="1" />
                                     <asp:ListItem Text="Night" Value="2" />
                                 </asp:DropDownList>
-                                <asp:RequiredFieldValidator ValidationGroup="SubmitGroup" ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;" 
+                                <asp:RequiredFieldValidator ValidationGroup="SubmitGroup" ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;"
                                     ControlToValidate="ddlEmployeeShift" InitialValue="0" runat="server" Display="Dynamic" />
                             </div>
 
@@ -131,7 +130,6 @@
                                     Style="font-size: 0.8rem; border-color: #717FF5; margin-top: 0.3rem;" runat="server"
                                     OnSelectedIndexChanged="ddlEmployeeDepartment_SelectedIndexChanged" AutoPostBack="true">
                                 </asp:DropDownList>
-
                                 <asp:RequiredFieldValidator ValidationGroup="SubmitGroup" ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;"
                                     ControlToValidate="ddlEmployeeDepartment"
                                     InitialValue="0" runat="server" Display="Dynamic" />
@@ -153,10 +151,6 @@
                                 </div>
                                 <asp:RequiredFieldValidator ValidationGroup="SubmitGroup" ErrorMessage="Required" ForeColor="Red" Style="font-size: 0.8rem;" Placeholder="none" ControlToValidate="txtEmployeeDOJ" runat="server" Display="Dynamic" />
                             </div>
-
-
-
-
 
                         </div>
                         <div class="row mt-3">
@@ -273,6 +267,132 @@
                     </from>
                 </fieldset>
 
+            </div>
+            <div class="card-footer">
+                <h4>Employee Details</h4>
+            </div>
+            <div class="card-footer">
+
+                <div runat="server" class="container alert alert-danger alert-dismissible fade show py-2" role="alert" id="ErrorMsgDeleteEmp" visible="false">
+                    <strong>Complaint Register Against This Employee Can't Delete.</strong> 
+                    <button type="button" class="btn-close py-2  mt-1" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <div runat="server" class="container alert alert-success alert-dismissible fade show py-2" role="alert" id="SuccessMsgDeleteEmp1" visible="false">
+                    <strong>Employee Delete Successfully.</strong> 
+                    <button type="button" class="btn-close py-2  mt-1" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+               
+            </div>
+
+            <div class="card-footer">
+                <div class="row py-2 px-3">
+                    <form2 class="form-control table-responsive-md table-responsive">
+                        <asp:GridView runat="server" ID="ShowEmployeedataSamePage" AutoGenerateColumns="false" CssClass="table table-bordered table-hover w-100 bg-transparent" DataKeyNames="ID" OnRowCommand="ShowEmployeedataSamePage_RowCommand">
+                            <Columns>
+                                <asp:TemplateField Visible="false" HeaderText="ID">
+                                    <ItemTemplate>
+                                        <asp:Label CssClass="d-flex justify-content-center align-items-center px-2 text-nowrap" Text='<%#Eval("ID") %>' runat="server" ID="glblID" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" HeaderText="CRN">
+                                    <ItemTemplate>
+                                        <asp:Label CssClass="d-flex justify-content-center align-items-center px-2 text-nowrap" Text='<%#Eval("CompanyRegistrationNumber")%>' runat="server" ID="glblCompanyRegistrationNumber" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField Visible="true" HeaderStyle-CssClass="text-center text-nowrap" HeaderText="EmployeeID">
+                                    <ItemTemplate>
+                                        <asp:Label CssClass="d-flex justify-content-center align-items-center px-2 text-nowrap" Text='<%#Eval("EmployeeID")%>' runat="server" ID="glblEmployeeID" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField Visible="true" HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Shift">
+                                    <ItemTemplate>
+                                        <asp:Label CssClass="d-flex justify-content-center align-items-center px-2 text-nowrap" Text='<%#Eval("SelectEmployeeShift")%>' runat="server" ID="glblSelectEmployeeShift" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Select Employee Department">
+                                    <ItemTemplate>
+                                        <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("SelectEmployeeDepartment")%>' runat="server" ID="glblSelectEmployeeDepartment" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField Visible="false" HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Select Employee Position">
+                                    <ItemTemplate>
+                                        <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("SelectEmployeePosition")%>' runat="server" ID="SelectEmployeePosition" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField Visible="false" HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Date Of Joining">
+                                    <ItemTemplate>
+                                        <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("DateOfJJoining")%>' runat="server" ID="glblDateOfJJoining" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField Visible="false" HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Employee Full Name">
+                                    <ItemTemplate>
+                                        <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("EmployeeFullName")%>' runat="server" ID="glblEmployeeFullName" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Employee Number">
+                                    <ItemTemplate>
+                                        <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("EmployeeNumber")%>' runat="server" ID="glblEmployeeNumber" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Employee Email">
+                                    <ItemTemplate>
+                                        <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("EmployeeEmail")%>' runat="server" ID="glblEmployeeEmail" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" Visible="false" HeaderText="Select Employee Gender">
+                                    <ItemTemplate>
+                                        <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("SelectEmployeeGender")%>' runat="server" ID="glblSelectEmployeeGender" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" Visible="false" HeaderText="Select Employee State">
+                                    <ItemTemplate>
+                                        <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("SelectEmployeeState")%>' runat="server" ID="glblSelectEmployeeState" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" Visible="false" HeaderText="Select Employee City">
+                                    <ItemTemplate>
+                                        <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("SelectEmployeeCity")%>' runat="server" ID="glblSelectEmployeeCity" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" Visible="false" HeaderText="Employee Address">
+                                    <ItemTemplate>
+                                        <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("EmployeeAddress")%>' runat="server" ID="glblEmployeeAddress" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" Visible="false" HeaderText="Employee CTC">
+                                    <ItemTemplate>
+                                        <asp:Label CssClass="d-flex justify-content-center align-items-center px-2" Text='<%#Eval("EmployeeCTC")%>' runat="server" ID="glblEmployeeCTC" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderStyle-CssClass="text-center text-nowrap" HeaderText="Update/Delete">
+                                    <ItemTemplate>
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <asp:Button Text="Update" CssClass="btn btn-warning btn-sm me-2" runat="server" CommandName="UpdateRecord" CommandArgument='<%#Eval("ID")%>' IsPostBack="true" />
+                                            <asp:Button Text="Delete" CssClass="btn btn-danger btn-sm ms-2" runat="server" CommandName="DeleteRecord" CommandArgument='<%#Eval("ID")%>' IsPostBack="true" />
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+
+                        </asp:GridView>
+                    </form2>
+                </div>
             </div>
         </div>
     </div>

@@ -49,4 +49,9 @@ public partial class ShowEmployeeDetails : System.Web.UI.Page
         GridEmployeeData.DataSource = ds;
         GridEmployeeData.DataBind();
     }
+
+    protected void GridEmployeeData_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
+    {
+
+    }
 }
